@@ -1,0 +1,180 @@
+<odoo>
+    <data>
+        <record id="view_pp_district_tree" model="ir.ui.view">
+            <field name="name">pp.district.tree</field>
+            <field name="model">pp.district</field>
+            <field name="arch" type="xml">
+                <tree string="District" editable="top">
+                    <field name="code"/>
+                    <field name="name"/>
+                    <field name="amphur_id"/>
+                    <field name="province_id"/>
+                    <field name="geo_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_pp_district_search" model="ir.ui.view">
+            <field name="name">pp.district.search</field>
+            <field name="model">pp.district</field>
+            <field name="arch" type="xml">
+                <search string="Distinct">
+                    <field name="code"/>
+                    <field name="name"/>
+                    <field name="amphur_id"/>
+                    <field name="province_id"/>
+                    <field name="geo_id"/>
+                </search>
+            </field>
+        </record>
+
+        <record id="view_pp_amphur_tree" model="ir.ui.view">
+            <field name="name">pp.amphur.tree</field>
+            <field name="model">pp.amphur</field>
+            <field name="arch" type="xml">
+                <tree string="Amphur" editable="top">
+                    <field name="code"/>
+                    <field name="name"/>
+                    <field name="province_id"/>
+                    <field name="geo_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_pp_province_tree" model="ir.ui.view">
+            <field name="name">pp.province.tree</field>
+            <field name="model">pp.province</field>
+            <field name="arch" type="xml">
+                <tree string="Province" editable="top">
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="geo_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_pp_zipcode_tree" model="ir.ui.view">
+            <field name="name">pp.zipcode.tree</field>
+            <field name="model">pp.zipcode</field>
+            <field name="arch" type="xml">
+                <tree string="Zipcode" editable="top">
+                    <field name="name"/>
+                    <field name="district_id"/>
+                    <field name="amphur_id"/>
+                    <field name="province_id"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record id="view_pp_geography_partner_form" model="ir.ui.view">
+            <field name="name">pp.geography.res.partner.form</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                <field name="street2" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </field>
+                <field name="city" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </field>
+                <field name="state_id" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </field>
+                <field name="street2" position="before">
+                    <field name="district_id" required="1" placeholder="แขวง/ตำบล" class="o_address_street"
+                           context="{'show_fully': 1}" options='{"no_open": true}'/>
+                    <field name="amphur_id" placeholder="เขต/อำเภอ" class="o_address_city" options='{"no_open": true}'/>
+                    <field name="province_id" placeholder="จังหวัด" class="o_address_state"
+                           options='{"no_open": true}'/>
+                </field>
+            </field>
+        </record>
+
+        <record id="view_pp_geography_partner_tree" model="ir.ui.view">
+            <field name="name">pp.geography.res.partner.tree</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_tree"/>
+            <field name="arch" type="xml">
+                <field name="display_name" position="after">
+                    <field name="district_id"/>
+                    <field name="amphur_id"/>
+                    <field name="province_id"/>
+                </field>
+            </field>
+        </record>
+
+        <record id="view_pp_geography_res_partner_filter" model="ir.ui.view">
+            <field name="name">pp.geography.res.partner.select</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_res_partner_filter"/>
+            <field name="arch" type="xml">
+                <field name="name" position="after">
+                    <field name="district_id" string="แขวง/ตำบล"/>
+                    <field name="amphur_id" string="เขต/อำเภอ"/>
+                    <field name="province_id" string="จังหวัด"/>
+                </field>
+            </field>
+        </record>
+
+        <menuitem id="menu_pp_geography" name="Thailand Geography"
+                  parent="contacts.res_partner_menu_config" sequence="7"
+                  groups="base.group_erp_manager"/>
+
+        <record id="action_pp_province" model="ir.actions.act_window">
+            <field name="name">จังหวัด</field>
+            <field name="res_model">pp.province</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree</field>
+        </record>
+
+        <menuitem id="menu_pp_province"
+                  name="จังหวัด"
+                  parent="menu_pp_geography"
+                  action="action_pp_province"
+                  sequence="10"
+                  groups="base.group_user"/>
+
+        <record id="action_pp_amphur" model="ir.actions.act_window">
+            <field name="name">อำเภอ</field>
+            <field name="res_model">pp.amphur</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree</field>
+        </record>
+
+        <menuitem id="menu_pp_amphur"
+                  name="อำเภอ"
+                  parent="menu_pp_geography"
+                  action="action_pp_amphur"
+                  sequence="20"
+                  groups="base.group_user"/>
+
+        <record id="action_pp_district" model="ir.actions.act_window">
+            <field name="name">ตำบล</field>
+            <field name="res_model">pp.district</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree</field>
+        </record>
+
+        <menuitem id="menu_pp_district"
+                  name="ตำบล"
+                  parent="menu_pp_geography"
+                  action="action_pp_district"
+                  sequence="30"
+                  groups="base.group_user"/>
+
+        <record id="action_pp_zipcode" model="ir.actions.act_window">
+            <field name="name">รหัสไปรษณีย์</field>
+            <field name="res_model">pp.zipcode</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree</field>
+        </record>
+
+        <menuitem id="menu_pp_zipcode"
+                  name="รหัสไปรษณีย์"
+                  parent="menu_pp_geography"
+                  action="action_pp_zipcode"
+                  sequence="40"
+                  groups="base.group_user"/>
+    </data>
+</odoo>
