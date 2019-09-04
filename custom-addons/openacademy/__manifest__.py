@@ -1,41 +1,30 @@
-# -*- coding: utf-8 -*-
+
 {
     'name': "openacademy",
-
     'summary': """
         Short (1 phrase/line) summary of the module's purpose, used as
-        subtitle on modules listing or apps.openerp.com""",
-
+        subtitle on modules listing or apps.openerp.com
+    """,
     'description': """
         Long description of module's purpose
     """,
-
-    'author': "My Company",
+    'author': "Kitti U.",
     'website': "http://www.yourcompany.com",
-
-    # Categories can be used to filter modules in modules listing
-    # Check https://github.com/odoo/odoo/blob/12.0/odoo/addons/base/data/ir_module_category_data.xml
-    # for the full list
     'category': 'Uncategorized',
     'version': '0.1',
-
-    # any module necessary for this one to work correctly
-    'depends': ['base', 'board', 'website'],
-
+    'depends': ['base', 'board'],
     # always loaded
     'data': [
-        'security/groups.xml',
+        'security/security.xml',
         'security/ir.model.access.csv',
-        'views/course.xml',
-        'views/session.xml',
-        # session is waiting for course.xml to create menu
-        'views/templates.xml',
+        'data/data.xml',
+        'wizard/wizard_view.xml',
+        'views/openacademy.xml',
         'views/partner.xml',
-        'views/report.xml',
         'views/session_board.xml',
-        'views/teacher.xml'
+        'reports/report.xml',
     ],
-    # only loaded in demonstration mode
+    # Only loaded in demonstration mode
     'demo': [
         'demo/demo.xml',
     ],

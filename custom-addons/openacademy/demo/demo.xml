@@ -1,29 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <record model="openacademy.course" id="course0">
-        <field name="name">Course 0</field>
-        <field name="description">Course 0's description
-
-            Can have multiple lines
-        </field>
+    <record model="openacademy.course" id="Course1">
+        <field name="name">course1</field>
+        <field name="description">course1's description</field>
     </record>
-    <record model="openacademy.course" id="course1">
-        <field name="name">Course 1</field>
-        <!-- no description for this one -->
+    <record model="openacademy.course" id="Course2">
+        <field name="name">course2</field>
+        <field name="description">course2's description</field>
     </record>
-    <record model="openacademy.course" id="course2">
-        <field name="name">Course 2</field>
-        <field name="description">Course 2's description</field>
+    <record model="openacademy.course" id="Course3">
+        <field name="name">course3</field>
+        <field name="description">course3's description</field>
     </record>
-
-
-    <record id="padilla" model="openacademy.teachers">
-        <field name="name">Diana Padilla</field>
-    </record>
-    <record id="carroll" model="openacademy.teachers">
-        <field name="name">Jody Carroll</field>
-    </record>
-    <record id="vaughn" model="openacademy.teachers">
-        <field name="name">Lester Vaughn</field>
-    </record>
-
 </odoo>

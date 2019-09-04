@@ -1,139 +1,174 @@
-# -*- coding: utf-8 -*-
-from datetime import timedelta
+from odoo import models, fields, api, _
 from odoo.exceptions import ValidationError
-from odoo import models, fields, api
+from datetime import timedelta
 
 
 class Course(models.Model):
     _name = 'openacademy.course'
-    _description = 'OpenAcademy Courses'
+    _description = 'Openacademy Course'
 
-    name = fields.Char(string="Title", required=True)
-    description = fields.Text()
-    responsible_id = fields.Many2one('res.users',
-                                     string='Responsible',
-                                     ondelete='set null',
-                                     index=True)
-    session_ids = fields.One2many('openacademy.session',
-                                  'course_id',
-                                  string='Sessions')
-
-    @api.multi
-    # add the word 'copy of' in front when hit 'duplicate' button
-    # since doing so won't work because we added unique constraint.
-    def copy(self, default=None):
-        default = dict(default or {})
-
-        copied_count = self.search_count(
-            [('name', '=like', u"Copy of {}%".format(self.name))])
-        if not copied_count:
-            new_name = u"Copy of {}".format(self.name)
-        else:
-            new_name = u"Copy of {} ({})".format(self.name, copied_count)
-
-        default['name'] = new_name
-        return super(Course, self).copy(default)
-
+    name = fields.Char(
+        string='Title',
+        required=True,
+    )
+    description = fields.Text(
+        string='Description',
+    )
+    responsible_id = fields.Many2one(
+        comodel_name='res.users',
+        string="Responsible",
+        ondelete='set null',
+        index=True,
+    )
+    session_ids = fields.One2many(
+        comodel_name='openacademy.session',
+        inverse_name='course_id',
+        string='Sessions',
+    )
     _sql_constraints = [
         ('name_description_check',
          'CHECK(name != description)',
          "The title of the course should not be the description"),
-
         ('name_unique',
          'UNIQUE(name)',
          "The course title must be unique"),
     ]
 
+    @api.multi
+    def copy(self, default=None):
+        default = dict(default or {})
+        copied_count = self.search_count(
+            [('name', '=like', _(u"Copy of {}%").format(self.name))])
+        if not copied_count:
+            new_name = _(u"Copy of {}").format(self.name)
+        else:
+            new_name = _(u"Copy of {} ({})").format(self.name, copied_count)
+
+        default['name'] = new_name
+        return super(Course, self).copy(default)
+
 
 class Session(models.Model):
     _name = 'openacademy.session'
-    _description = 'OpenAcademy Sessions'
+    _description = 'Openacademy Session'
 
-    name = fields.Char(required=True)
-    start_date = fields.Date(default=fields.Date.today)
-    duration = fields.Float(digits=(6, 2), help="Duration in days")
-    end_date = fields.Date(string="End Date",
-                           store=True,
-                           compute="_get_end_date",
-                           inverse="_set_end_date")  # inverse allows write operation
-    seats = fields.Integer(string="Number of seats")
-    active = fields.Boolean(default=True)
-    instructor_id = fields.Many2one('res.partner',
-                                    string='Instructor',
-                                    domain=['|', ('instructor', '=', True),
-                                            ('category_id.name', 'ilike', "Teacher")])
-    course_id = fields.Many2one('openacademy.course',
-                                string="Course",
-                                ondelete='cascade',
-                                required=True)
-    attendee_ids = fields.Many2many('res.partner', string="Attendees")
-    taken_seats = fields.Float('Taken Seats',
-                               compute='_taken_seats',
-                               track_visibility=True)
+    name = fields.Char(
+        string='Name',
+        required=True,
+    )
+    start_date = fields.Date(
+        string='Start Date',
+        default=fields.Date.today,
+    )
+    duration = fields.Float(
+        string='Duration',
+        digits=(6, 2),
+        help="Duration in days",
+    )
+    seats = fields.Integer(
+        string='Nuber of seats',
+    )
+    active = fields.Boolean(
+        string='Active',
+        default=True,
+    )
+    color = fields.Integer(
+        string='Color'
+    )
+    instructor_id = fields.Many2one(
+        comodel_name='res.partner',
+        string="Instructor",
+        domain=['|', ('instructor', '=', True),
+                ('category_id.name', 'ilike', "Teacher")],
+    )
+    course_id = fields.Many2one(
+        comodel_name='openacademy.course',
+        ondelete='cascade',
+        string='Course',
+        required=True,
+    )
+    attendee_ids = fields.Many2many(
+        comodel_name='res.partner',
+        string='Attendees',
+    )
+    taken_seats = fields.Float(
+        string='Taken seats',
+        compute='_taken_seats',
+    )
+    end_date = fields.Date(
+        string='End Date',
+        compute='_get_end_date',
+        inverse='_set_end_date',
+        store=True,
+    )
+    hours = fields.Float(
+        string='Duration in hours',
+        compute='_get_hours',
+        inverse='_set_hours',
+    )
     attendees_count = fields.Integer(
-        string="Attendees count", compute='_get_attendees_count', store=True)
-    color = fields.Integer()
+        string='Attendees count',
+        compute='_get_attendees_count',
+        store=True,
+    )
 
     @api.depends('seats', 'attendee_ids')
     def _taken_seats(self):
-        for record in self:
-            if not record.seats:
-                record.taken_seats = 0.0
+        for r in self:
+            if not r.seats:
+                r.taken_seats = 0.0
             else:
-                record.taken_seats = 100.0 * len(record.attendee_ids) / record.seats
+                r.taken_seats = 100.0 * len(r.attendee_ids) / r.seats
 
     @api.onchange('seats', 'attendee_ids')
-    def _verify_valid_seats(self):
+    def _onchange_seats(self):
         if self.seats < 0:
             return {
                 'warning': {
-                    'title': "Incorrect 'seats' value",
-                    'message': "The number of available seats may not be negative",
-                },
+                    'title': _("Invalid value"),
+                    'message': _("The number of seats can't be negative"),
+                }
             }
         if self.seats < len(self.attendee_ids):
             return {
                 'warning': {
-                    'title': "Too many attendees",
-                    'message': "Increase seats or remove excess attendees",
-                },
+                    'title': _("Invalid value"),
+                    'message': _("Increase seats or remove excess attendees"),
+                }
             }
 
-    @api.constrains('attendee_ids', 'instructor_id')
-    def _check_instructor_not_in_attendees(self):
-        for record in self:
-            if record.instructor_id and record.instructor_id in record.attendee_ids:
-                raise ValidationError("Instructor cannot attend his/her own session")
-
-    @api.depends('duration', 'start_date')
+    @api.depends('start_date', 'duration')
     def _get_end_date(self):
-        for record in self:
-            if not (record.start_date and record.duration):
-                record.end_date = record.start_date
+        for r in self:
+            if not (r.start_date and r.duration):
+                r.end_date = r.start_date
                 continue
-
-            # Add duration to start_date, but: Monday + 5 days = Saturday, so
-            # subtract one second to get on Friday instead
-            duration = timedelta(days=record.duration, seconds=-1)
-            record.end_date = record.start_date + duration
+            duration = timedelta(days=r.duration, seconds=-1)
+            r.end_date = r.start_date + duration
 
     def _set_end_date(self):
         for r in self:
             if not (r.start_date and r.end_date):
                 continue
-
-            # Compute the difference between dates, but: Friday - Monday = 4 days,
-            # so add one day to get 5 days instead
             r.duration = (r.end_date - r.start_date).days + 1
+
+    @api.depends('duration')
+    def _get_hours(self):
+        for r in self:
+            r.hours = r.duration * 24
+
+    def _set_hours(self):
+        for r in self:
+            r.duration = r.hours / 24
 
     @api.depends('attendee_ids')
     def _get_attendees_count(self):
         for r in self:
             r.attendees_count = len(r.attendee_ids)
 
-
-class Teacher(models.Model):
-    _name = 'openacademy.teachers'
-
-    name = fields.Char()
-    biography = fields.Html()
+    @api.constrains('instructor_id', 'attendee_ids')
+    def _check_instructor_not_in_attendees(self):
+        for r in self:
+            if r.instructor_id and r.instructor_id in r.attendee_ids:
+                raise ValidationError(
+                    _("A session's instructor can't be an attendee"))
