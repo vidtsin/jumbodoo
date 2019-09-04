@@ -1,4 +1,4 @@
-from odoo import api, fields, models, _
+from odoo import api, fields, models
 
 
 class ResPartner(models.Model):
@@ -29,3 +29,5 @@ class ResPartner(models.Model):
                                                  ('province_id', '=', self.district_id.province_id.id)])
             if zip:
                 self.zip = zip.name
+
+            self.country_id = 217 # Thailand Country Code

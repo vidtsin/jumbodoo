@@ -19,7 +19,6 @@
             <field name="model">pp.district</field>
             <field name="arch" type="xml">
                 <search string="Distinct">
-                    <field name="code"/>
                     <field name="name"/>
                     <field name="amphur_id"/>
                     <field name="province_id"/>

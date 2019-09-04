@@ -22,7 +22,6 @@
 
     # always loaded
     'data': [
-        'security/groups.xml',
         'security/ir.model.access.csv',
         'data/province_data.xml',
         'data/amphur_data.xml',
