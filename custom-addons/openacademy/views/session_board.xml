@@ -12,7 +12,7 @@
     <record model="ir.actions.act_window" id="act_session_calendar">
         <field name="name">Sessions</field>
         <field name="res_model">openacademy.session</field>
-        <field name="view_type">form</field>
+        <field name="">form</field>
         <field name="view_mode">calendar</field>
         <field name="view_id" ref="openacademy.session_calendar_view"/>
     </record>
