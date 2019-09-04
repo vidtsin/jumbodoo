@@ -23,12 +23,12 @@
     'version': '12.0.0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base', 'mail', 'pp_geography'],
+    'depends': ['base', 'mail', 'pp_geography', 'hr_employee_id', 'hr_payroll_cancel'],
 
     # always loaded
     'data': [
         # 'security/ir.model.access.csv',
-        'views/views.xml',
+        'views/pp_employee_view.xml',
         'views/templates.xml',
     ],
     # only loaded in demonstration mode
