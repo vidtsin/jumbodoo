@@ -5,9 +5,10 @@
 from odoo import fields, models, _
 
 
-class PPHREmployee(models.Model):
-    _name = 'pp hr employee'
-    _description = 'PP HR Employee for Jumbo Industry'
+class PPEmployee(models.Model):
+    _name = 'pp.hr.employee'
+    _description = 'PPSmart HR Employee for Jumbo Industry'
     _inherit = 'hr.employee'
+
 
 

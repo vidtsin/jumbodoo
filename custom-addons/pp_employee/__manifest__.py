@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "pp_employee",
+    'name': "PPSmart Employee",
 
     'summary': """
        PP Employee module customized for Jumbo Industry co., ltd. 
@@ -23,7 +23,7 @@
     'version': '12.0.0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base', 'mail', 'pp_geography', 'hr_employee_id', 'hr_payroll_cancel'],
+    'depends': ['base', 'mail', 'pp_geography', 'hr_employee_id', 'hr_employee_firstname', 'hr_payroll_cancel', 'hr_employee_document'],
 
     # always loaded
     'data': [
