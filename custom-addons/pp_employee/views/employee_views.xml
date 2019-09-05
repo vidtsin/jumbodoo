@@ -110,11 +110,11 @@
         -->
 
         <!-- actions -->
+        <!-- employee list action -->
         <record model="ir.actions.act_window" id="pp_employee_list_action">
             <field name="name">Jumbo Employees</field>
             <field name="res_model">pp.employee</field>
-            <field name="view_type">form</field>
-            <field name="view_mode">tree,form</field>
+            <field name="view_mode">tree,form,kanban</field>
             <!-- SET DEFAULT SEARCH
             <field name="context" eval="{'search_default_my_courses': 1}"/>
             -->
@@ -122,13 +122,31 @@
                 <p class="o_view_nocontent_smiling_face">Create some employee!</p>
             </field>
         </record>
+        <!-- department list action -->
+        <record model="ir.actions.act_window" id="pp_department_list_action">
+            <field name="name">Jumbo Departments</field>
+            <field name="res_model">pp.department</field>
+            <field name="view_mode">tree,form,kanban</field>
+            <!-- SET DEFAULT SEARCH
+            <field name="context" eval="{'search_default_my_courses': 1}"/>
+            -->
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">Create some department!</p>
+            </field>
+        </record>
 
         <!-- Top menu item -->
-        <menuitem name="Jumbo Employees" id="pp_employee.menu_root"
+        <menuitem name="Jumbo Industry" id="pp_employee_menu_root"
                   web_icon="pp_employee,static/description/icon.png"/>
         <!-- menu categories -->
-        <menuitem name="Jumbo Employees" id="pp_employee.menu_jumbo_employee" parent="pp_employee.menu_root"/>
-        <menuitem name="Employees" id="pp_employee.menu_employees" parent="pp_employee.menu_jumbo_employee"
+        <!-- menu level 1 - First -->
+        <menuitem name="Employees" id="pp_employee_menu_jumbo_employee" parent="pp_employee_menu_root"/>
+        <!-- menu sublevel 1 -->
+        <menuitem name="All Employees" id="pp_employee_menu_employees" parent="pp_employee_menu_jumbo_employee"
                   action="pp_employee_list_action"/>
+
+        <menuitem name="Departments" id="pp_department_menu_jumbo_department" parent="pp_employee_menu_root"/>
+        <menuitem name="All Departments" id="pp_department_menu_departments" parent="pp_department_menu_jumbo_department"
+                  action="pp_department_list_action"/>
     </data>
 </odoo>

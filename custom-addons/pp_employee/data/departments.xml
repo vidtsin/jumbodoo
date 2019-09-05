@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <!--###########################################################################
+  # Copyright (c) 2019.                                                       #
+  # Author: Jakkrit S.                                                        #
+  # Company: PPSmartProduct Co., Ltd.                                         #
+  ###########################################################################-->
+
+<odoo>
+    <record model="pp.department" id="department_lab">
+        <field name="name">Lab</field>
+    </record>
+    <record model="pp.department" id="department_admin">
+        <field name="name">Administration</field>
+    </record>
+    <record model="pp.department" id="department_qc">
+        <field name="name">Quality Control (QC)</field>
+    </record>
+</odoo>
