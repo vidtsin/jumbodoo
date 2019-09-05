@@ -1,0 +1,30 @@
+<odoo>
+    <data>
+        <record id="pp_employee_demo_1" model="pp.employee">
+            <field name="name">จักรกิด asdafs</field>
+            <field name="religion">islam</field>
+            <field name="jumbo_employee_id">209238</field>
+        </record>
+        <!--  -->
+        <!--   <record id="object1" model="custom-addons/pp_employee.custom-addons/pp_employee"> -->
+        <!--     <field name="name">Object 1</field> -->
+        <!--     <field name="value">10</field> -->
+        <!--   </record> -->
+        <!--  -->
+        <!--   <record id="object2" model="custom-addons/pp_employee.custom-addons/pp_employee"> -->
+        <!--     <field name="name">Object 2</field> -->
+        <!--     <field name="value">20</field> -->
+        <!--   </record> -->
+        <!--  -->
+        <!--   <record id="object3" model="custom-addons/pp_employee.custom-addons/pp_employee"> -->
+        <!--     <field name="name">Object 3</field> -->
+        <!--     <field name="value">30</field> -->
+        <!--   </record> -->
+        <!--  -->
+        <!--   <record id="object4" model="custom-addons/pp_employee.custom-addons/pp_employee"> -->
+        <!--     <field name="name">Object 4</field> -->
+        <!--     <field name="value">40</field> -->
+        <!--   </record> -->
+        <!--  -->
+    </data>
+</odoo>

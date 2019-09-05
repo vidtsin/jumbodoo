@@ -1,11 +1,8 @@
-git subtree add --prefix=custom-addons/oca-website https://github.com/OCA/website.git 12.0 --squash
-./odoo-bin -c odoo.conf --dev=all
-
-
-Required Modules
+    # any module necessary for this one to work correctly
     'depends': ['base',
                 'mail',
                 'pp_geography',
+                'hr',
                 'hr_employee_id',
                 'hr_employee_firstname',
                 'hr_payroll_cancel',

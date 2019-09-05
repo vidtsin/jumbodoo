@@ -1,0 +1,81 @@
+<odoo>
+    <data>
+        <!-- explicit list view definition -->
+        <!--
+        <record model="ir.ui.view" id="custom-addons/pp_employee.list">
+          <field name="name">custom-addons/pp_employee list</field>
+          <field name="model">custom-addons/pp_employee.custom-addons/pp_employee</field>
+          <field name="arch" type="xml">
+            <tree>
+              <field name="name"/>
+              <field name="value"/>
+              <field name="value2"/>
+            </tree>
+          </field>
+        </record>
+        -->
+
+        <!-- actions opening views on models -->
+        <!--
+        <record model="ir.actions.act_window" id="custom-addons/pp_employee.action_window">
+          <field name="name">custom-addons/pp_employee window</field>
+          <field name="res_model">custom-addons/pp_employee.custom-addons/pp_employee</field>
+          <field name="view_mode">tree,form</field>
+        </record>
+        -->
+
+        <!-- server action to the one above -->
+        <!--
+        <record model="ir.actions.server" id="custom-addons/pp_employee.action_server">
+          <field name="name">custom-addons/pp_employee server</field>
+          <field name="model_id" ref="model_custom-addons/pp_employee_custom-addons/pp_employee"/>
+          <field name="state">code</field>
+          <field name="code">
+            action = {
+              "type": "ir.actions.act_window",
+              "view_mode": "tree,form",
+              "res_model": self._name,
+            }
+          </field>
+        </record>
+        -->
+
+        <!-- Top menu item -->
+        <!--
+        <menuitem name="custom-addons/pp_employee" id="custom-addons/pp_employee.menu_root"/>
+        -->
+        <!-- menu categories -->
+        <!--
+        <menuitem name="Menu 1" id="custom-addons/pp_employee.menu_1" parent="custom-addons/pp_employee.menu_root"/>
+        <menuitem name="Menu 2" id="custom-addons/pp_employee.menu_2" parent="custom-addons/pp_employee.menu_root"/>
+        -->
+        <!-- actions -->
+        <!--
+        <menuitem name="List" id="custom-addons/pp_employee.menu_1_list" parent="custom-addons/pp_employee.menu_1"
+                  action="custom-addons/pp_employee.action_window"/>
+        <menuitem name="Server to list" id="custom-addons/pp_employee" parent="custom-addons/pp_employee.menu_2"
+                  action="custom-addons/pp_employee.action_server"/>
+        -->
+        <!-- actions -->
+        <record model="ir.actions.act_window" id="pp_employee_list_action">
+            <field name="name">pp employee list window</field>
+            <field name="res_model">pp.employee</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <!-- SET DEFAULT SEARCH
+            <field name="context" eval="{'search_default_my_courses': 1}"/>
+            -->
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">Create some employee!</p>
+            </field>
+        </record>
+
+        <!-- Top menu item -->
+        <menuitem name="Jumbo Employees" id="pp_employee.menu_root"
+                  web_icon="pp_employee,static/description/icon.png/"/>
+        <!-- menu categories -->
+        <menuitem name="Jumbo Employees" id="pp_employee.menu_jumbo_employee" parent="pp_employee.menu_root"/>
+        <menuitem name="Employees" id="pp_employee.menu_employees" parent="pp_employee.menu_jumbo_employee"
+                  action="pp_employee_list_action"/>
+    </data>
+</odoo>
