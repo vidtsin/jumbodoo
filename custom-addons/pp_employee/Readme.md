@@ -35,7 +35,7 @@ git ls-subtrees
 
 Reinit DB in case something gone wrong
 https://github.com/odoo/odoo/issues/27447
-
+odoo/odoo-bin -c odoo.conf -d jumbo -i base
 
 # Git Subtree Basics
 If you hate `git submodule`, then you may want to give `git subtree` a try.

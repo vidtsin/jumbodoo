@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-05 07:33+0000\n"
-"PO-Revision-Date: 2019-09-05 07:33+0000\n"
+"POT-Creation-Date: 2019-09-05 12:56+0000\n"
+"PO-Revision-Date: 2019-09-05 12:56+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -16,8 +16,69 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: pp_employee
-#: model:pp.employee,jumbo_employee_id:pp_employee.pp_employee_demo_1
-msgid "209238"
+#: code:addons/pp_employee/models/pp_employee.py:71
+#, python-format
+msgid "%s day"
+msgstr ""
+
+#. module: pp_employee
+#: code:addons/pp_employee/models/pp_employee.py:69
+#, python-format
+msgid "%s days"
+msgstr ""
+
+#. module: pp_employee
+#: code:addons/pp_employee/models/pp_employee.py:66
+#, python-format
+msgid "%s month"
+msgstr ""
+
+#. module: pp_employee
+#: code:addons/pp_employee/models/pp_employee.py:64
+#, python-format
+msgid "%s months"
+msgstr ""
+
+#. module: pp_employee
+#: code:addons/pp_employee/models/pp_employee.py:61
+#, python-format
+msgid "%s year"
+msgstr ""
+
+#. module: pp_employee
+#: code:addons/pp_employee/models/pp_employee.py:59
+#, python-format
+msgid "%s years"
+msgstr ""
+
+#. module: pp_employee
+#: model:pp.employee,age:pp_employee.pp_employee_demo_2
+msgid "15 years 11 months 14 days"
+msgstr ""
+
+#. module: pp_employee
+#: model:pp.employee,taxpayer_id:pp_employee.pp_employee_demo_1
+msgid "20929"
+msgstr ""
+
+#. module: pp_employee
+#: model:pp.employee,employee_badge_id:pp_employee.pp_employee_demo_1
+msgid "2233"
+msgstr ""
+
+#. module: pp_employee
+#: model:pp.employee,age:pp_employee.pp_employee_demo_1
+msgid "25 years 10 months 4 days"
+msgstr ""
+
+#. module: pp_employee
+#: model:pp.employee,taxpayer_id:pp_employee.pp_employee_demo_2
+msgid "299"
+msgstr ""
+
+#. module: pp_employee
+#: model:pp.employee,employee_badge_id:pp_employee.pp_employee_demo_2
+msgid "83749"
 msgstr ""
 
 #. module: pp_employee
@@ -91,16 +152,6 @@ msgid "Company"
 msgstr ""
 
 #. module: pp_employee
-#: model:ir.model.fields,field_description:pp_employee.field_pp_employee__vehicle
-msgid "Company Vehicle"
-msgstr ""
-
-#. module: pp_employee
-#: model:ir.model.fields,field_description:pp_employee.field_pp_employee__contracts_count
-msgid "Contract Count"
-msgstr ""
-
-#. module: pp_employee
 #: model:ir.model.fields,field_description:pp_employee.field_pp_employee__country_of_birth
 msgid "Country of Birth"
 msgstr ""
@@ -121,11 +172,6 @@ msgid "Created on"
 msgstr ""
 
 #. module: pp_employee
-#: model:ir.model.fields,field_description:pp_employee.field_pp_employee__contract_id
-msgid "Current Contract"
-msgstr ""
-
-#. module: pp_employee
 #: model:ir.model.fields,field_description:pp_employee.field_pp_employee__birthday
 msgid "Date of Birth"
 msgstr ""
@@ -137,6 +183,7 @@ msgstr ""
 
 #. module: pp_employee
 #: model:ir.model.fields,field_description:pp_employee.field_pp_employee__department_id
+#: model_terms:ir.ui.view,arch_db:pp_employee.pp_employee_form_view
 msgid "Department"
 msgstr ""
 
@@ -151,13 +198,8 @@ msgid "Divorced"
 msgstr ""
 
 #. module: pp_employee
-#: model:ir.model.fields,field_description:pp_employee.field_pp_employee__documents_count
-msgid "Document Count"
-msgstr ""
-
-#. module: pp_employee
-#: model:ir.model.fields,field_description:pp_employee.field_pp_employee__document_ids
-msgid "Documents"
+#: selection:pp.employee,salutation:0
+msgid "Dr."
 msgstr ""
 
 #. module: pp_employee
@@ -171,13 +213,8 @@ msgid "Emergency Phone"
 msgstr ""
 
 #. module: pp_employee
-#: model:ir.model.fields,field_description:pp_employee.field_pp_employee__jumbo_employee_id
+#: model:ir.model.fields,field_description:pp_employee.field_pp_employee__employee_badge_id
 msgid "Employee Badge ID"
-msgstr ""
-
-#. module: pp_employee
-#: model:ir.model.fields,field_description:pp_employee.field_pp_employee__contract_ids
-msgid "Employee Contracts"
 msgstr ""
 
 #. module: pp_employee
@@ -211,13 +248,8 @@ msgid "Field of Study"
 msgstr ""
 
 #. module: pp_employee
-#: model:ir.model.fields,field_description:pp_employee.field_pp_employee__first_contract_id
-msgid "First Contract"
-msgstr ""
-
-#. module: pp_employee
-#: model:ir.model.fields,help:pp_employee.field_pp_employee__first_contract_id
-msgid "First contract of the employee"
+#: model:ir.model.fields,field_description:pp_employee.field_pp_employee__financial_institution
+msgid "Financial Institution"
 msgstr ""
 
 #. module: pp_employee
@@ -246,13 +278,13 @@ msgid "Gender"
 msgstr ""
 
 #. module: pp_employee
-#: model:ir.model.fields,field_description:pp_employee.field_pp_employee__service_hire_date
-msgid "Hire Date"
+#: model_terms:ir.ui.view,arch_db:pp_employee.pp_employee_form_view
+msgid "General Description"
 msgstr ""
 
 #. module: pp_employee
-#: model:ir.model.fields,help:pp_employee.field_pp_employee__service_hire_date
-msgid "Hire date is normally the date an employee completes new hire paperwork"
+#: selection:pp.employee,financial_institution:0
+msgid "Government Savings Bank"
 msgstr ""
 
 #. module: pp_employee
@@ -291,11 +323,6 @@ msgid "Is Follower"
 msgstr ""
 
 #. module: pp_employee
-#: model:ir.model.fields,field_description:pp_employee.field_pp_employee__manager
-msgid "Is a Manager"
-msgstr ""
-
-#. module: pp_employee
 #: selection:pp.employee,religion:0
 msgid "Islam"
 msgstr ""
@@ -311,10 +338,25 @@ msgid "Job Title"
 msgstr ""
 
 #. module: pp_employee
+#: model_terms:ir.ui.view,arch_db:pp_employee.pp_employee_form_view
+msgid "Jumbo Employee Form"
+msgstr ""
+
+#. module: pp_employee
+#: model_terms:ir.ui.view,arch_db:pp_employee.pp_employee_list_view
+msgid "Jumbo Employee List"
+msgstr ""
+
+#. module: pp_employee
 #: model:ir.actions.act_window,name:pp_employee.pp_employee_list_action
 #: model:ir.ui.menu,name:pp_employee.menu_jumbo_employee
 #: model:ir.ui.menu,name:pp_employee.menu_root
 msgid "Jumbo Employees"
+msgstr ""
+
+#. module: pp_employee
+#: selection:pp.employee,financial_institution:0
+msgid "Kasikorn"
 msgstr ""
 
 #. module: pp_employee
@@ -323,8 +365,13 @@ msgid "Km home-work"
 msgstr ""
 
 #. module: pp_employee
-#: model:ir.model.fields,field_description:pp_employee.field_pp_employee__last_contract_id
-msgid "Last Contract"
+#: selection:pp.employee,financial_institution:0
+msgid "Krung Sri"
+msgstr ""
+
+#. module: pp_employee
+#: selection:pp.employee,financial_institution:0
+msgid "Krung Thai"
 msgstr ""
 
 #. module: pp_employee
@@ -343,18 +390,8 @@ msgid "Last Updated on"
 msgstr ""
 
 #. module: pp_employee
-#: model:ir.model.fields,help:pp_employee.field_pp_employee__last_contract_id
-msgid "Last contract of the employee"
-msgstr ""
-
-#. module: pp_employee
 #: model:ir.model.fields,field_description:pp_employee.field_pp_employee__lastname
 msgid "Lastname"
-msgstr ""
-
-#. module: pp_employee
-#: model:ir.model.fields,help:pp_employee.field_pp_employee__contract_id
-msgid "Latest contract of the employee"
 msgstr ""
 
 #. module: pp_employee
@@ -393,11 +430,6 @@ msgid "Master"
 msgstr ""
 
 #. module: pp_employee
-#: model:ir.model.fields,field_description:pp_employee.field_pp_employee__medic_exam
-msgid "Medical Examination Date"
-msgstr ""
-
-#. module: pp_employee
 #: model:ir.model.fields,field_description:pp_employee.field_pp_employee__image_medium
 msgid "Medium-sized photo"
 msgstr ""
@@ -418,8 +450,28 @@ msgid "Messages"
 msgstr ""
 
 #. module: pp_employee
+#: selection:pp.employee,salutation:0
+msgid "Mr."
+msgstr ""
+
+#. module: pp_employee
+#: selection:pp.employee,salutation:0
+msgid "Mrs."
+msgstr ""
+
+#. module: pp_employee
+#: selection:pp.employee,salutation:0
+msgid "Ms."
+msgstr ""
+
+#. module: pp_employee
 #: model:ir.model.fields,field_description:pp_employee.field_pp_employee__name
 msgid "Name"
+msgstr ""
+
+#. module: pp_employee
+#: model:ir.model.fields,field_description:pp_employee.field_pp_employee__english_name
+msgid "Name in English"
 msgstr ""
 
 #. module: pp_employee
@@ -440,6 +492,11 @@ msgstr ""
 #. module: pp_employee
 #: model:ir.model.fields,field_description:pp_employee.field_pp_employee__activity_type_id
 msgid "Next Activity Type"
+msgstr ""
+
+#. module: pp_employee
+#: selection:pp.employee,religion:0
+msgid "No Religion"
 msgstr ""
 
 #. module: pp_employee
@@ -554,33 +611,18 @@ msgid "SSN No"
 msgstr ""
 
 #. module: pp_employee
+#: model_terms:ir.ui.view,arch_db:pp_employee.pp_employee_form_view
+msgid "Salary Information"
+msgstr ""
+
+#. module: pp_employee
+#: model:ir.model.fields,field_description:pp_employee.field_pp_employee__salutation
+msgid "Salutation"
+msgstr ""
+
+#. module: pp_employee
 #: model:ir.model.fields,field_description:pp_employee.field_pp_employee__study_school
 msgid "School"
-msgstr ""
-
-#. module: pp_employee
-#: model:ir.model.fields,field_description:pp_employee.field_pp_employee__service_duration
-msgid "Service Duration"
-msgstr ""
-
-#. module: pp_employee
-#: model:ir.model.fields,field_description:pp_employee.field_pp_employee__service_duration_days
-msgid "Service Duration (days)"
-msgstr ""
-
-#. module: pp_employee
-#: model:ir.model.fields,field_description:pp_employee.field_pp_employee__service_duration_months
-msgid "Service Duration (months)"
-msgstr ""
-
-#. module: pp_employee
-#: model:ir.model.fields,field_description:pp_employee.field_pp_employee__service_duration_years
-msgid "Service Duration (years)"
-msgstr ""
-
-#. module: pp_employee
-#: model:ir.model.fields,help:pp_employee.field_pp_employee__service_duration
-msgid "Service duration in days"
 msgstr ""
 
 #. module: pp_employee
@@ -619,16 +661,6 @@ msgid "Spouse Complete Name"
 msgstr ""
 
 #. module: pp_employee
-#: model:ir.model.fields,field_description:pp_employee.field_pp_employee__service_start_date
-msgid "Start Date"
-msgstr ""
-
-#. module: pp_employee
-#: model:ir.model.fields,help:pp_employee.field_pp_employee__service_start_date
-msgid "Start date is the first day the employee actually works and this date is used for accrual leave allocations calculation"
-msgstr ""
-
-#. module: pp_employee
 #: model:ir.model.fields,help:pp_employee.field_pp_employee__activity_state
 msgid "Status based on activities\n"
 "Overdue: Due date is already passed\n"
@@ -647,13 +679,8 @@ msgid "Tags"
 msgstr ""
 
 #. module: pp_employee
-#: model:ir.model.fields,field_description:pp_employee.field_pp_employee__service_termination_date
-msgid "Termination Date"
-msgstr ""
-
-#. module: pp_employee
-#: model:ir.model.fields,help:pp_employee.field_pp_employee__service_termination_date
-msgid "Termination date is the last day the employee actually works and this date is used for accrual leave allocations calculation"
+#: model:ir.model.fields,field_description:pp_employee.field_pp_employee__taxpayer_id
+msgid "Tax Payer ID"
 msgstr ""
 
 #. module: pp_employee
@@ -744,5 +771,20 @@ msgstr ""
 #. module: pp_employee
 #: model:ir.model.fields,field_description:pp_employee.field_pp_employee__resource_calendar_id
 msgid "Working Hours"
+msgstr ""
+
+#. module: pp_employee
+#: model:ir.model.fields,field_description:pp_employee.field_pp_employee__age
+msgid "employee's age"
+msgstr ""
+
+#. module: pp_employee
+#: model:pp.employee,english_name:pp_employee.pp_employee_demo_2
+msgid "fckng dude"
+msgstr ""
+
+#. module: pp_employee
+#: model:pp.employee,english_name:pp_employee.pp_employee_demo_1
+msgid "johnson five fckng dude"
 msgstr ""
 

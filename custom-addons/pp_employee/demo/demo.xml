@@ -3,28 +3,20 @@
         <record id="pp_employee_demo_1" model="pp.employee">
             <field name="name">จักรกิด asdafs</field>
             <field name="religion">islam</field>
-            <field name="jumbo_employee_id">209238</field>
+            <field name="salutation">dr</field>
+            <field name="employee_badge_id">2233</field>
+            <field name="english_name">johnson five fckng dude</field>
+            <field name="financial_institution">ksb</field>
+            <field name="taxpayer_id">20929</field>
         </record>
-        <!--  -->
-        <!--   <record id="object1" model="custom-addons/pp_employee.custom-addons/pp_employee"> -->
-        <!--     <field name="name">Object 1</field> -->
-        <!--     <field name="value">10</field> -->
-        <!--   </record> -->
-        <!--  -->
-        <!--   <record id="object2" model="custom-addons/pp_employee.custom-addons/pp_employee"> -->
-        <!--     <field name="name">Object 2</field> -->
-        <!--     <field name="value">20</field> -->
-        <!--   </record> -->
-        <!--  -->
-        <!--   <record id="object3" model="custom-addons/pp_employee.custom-addons/pp_employee"> -->
-        <!--     <field name="name">Object 3</field> -->
-        <!--     <field name="value">30</field> -->
-        <!--   </record> -->
-        <!--  -->
-        <!--   <record id="object4" model="custom-addons/pp_employee.custom-addons/pp_employee"> -->
-        <!--     <field name="name">Object 4</field> -->
-        <!--     <field name="value">40</field> -->
-        <!--   </record> -->
-        <!--  -->
+        <record id="pp_employee_demo_2" model="pp.employee">
+            <field name="name">สิริธร เทวานฤมิตร</field>
+            <field name="religion">christian</field>
+            <field name="salutation">ms</field>
+            <field name="employee_badge_id">83749</field>
+            <field name="english_name">fckng dude</field>
+            <field name="financial_institution">ktb</field>
+            <field name="taxpayer_id">299</field>
+        </record>
     </data>
 </odoo>
