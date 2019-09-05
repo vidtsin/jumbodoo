@@ -5,6 +5,7 @@
   # Company: PPSmartProduct Co., Ltd.                                         #
   ###########################################################################-->
 
+<!-- ENGLISH
 <odoo>
     <record model="pp.department" id="department_lab">
         <field name="name">Lab</field>
@@ -14,5 +15,122 @@
     </record>
     <record model="pp.department" id="department_qc">
         <field name="name">Quality Control (QC)</field>
+    </record>
+    <record model="pp.department" id="inventory">
+        <field name="name">Inventory/Warehouse</field>
+    </record>
+    <record model="pp.department" id="managerial">
+        <field name="name">Managerial</field>
+    </record>
+    <record model="pp.department" id="sugar_pump">
+        <field name="name">Sugar Pumper</field>
+    </record>
+    <record model="pp.department" id="chocolate_crunch">
+        <field name="name">Chocolate Cruncher</field>
+    </record>
+    <record model="pp.department" id="chocolate_coater">
+        <field name="name">Chocolate Coater</field>
+    </record>
+    <record model="pp.department" id="chocolate_dripper">
+        <field name="name">Chocolate Dripper</field>
+    </record>
+    <record model="pp.department" id="chocolate_dripper">
+        <field name="name">Chocolate Dripper</field>
+    </record>
+    <record model="pp.department" id="chocolate_wrapper">
+        <field name="name">Chocolate Wrapper</field>
+    </record>
+    <record model="pp.department" id="packager1">
+        <field name="name">Packager 1</field>
+    </record>
+    <record model="pp.department" id="packager2">
+        <field name="name">Packager 2</field>
+    </record>
+    <record model="pp.department" id="kneader">
+        <field name="name">Kneader</field>
+    </record>
+    <record model="pp.department" id="candy_separator">
+        <field name="name">Candy Separator</field>
+    </record>
+    <record model="pp.department" id="candy_wrapper">
+        <field name="name">Candy Wrapper</field>
+    </record>
+    <record model="pp.department" id="candy_packager">
+        <field name="name">Candy Packager</field>
+    </record>
+    <record model="pp.department" id="end_of_line_packager">
+        <field name="name">End-of-Line Packager</field>
+    </record>
+    <record model="pp.department" id="candy_contractor">
+        <field name="name">Candy Contractor</field>
+    </record>
+    <record model="pp.department" id="packaging_contractor1">
+        <field name="name">Packaging Contractor 1</field>
+    </record>
+    <record model="pp.department" id="packaging_contractor2">
+        <field name="name">Packaging Contractor 2</field>
+    </record>
+</odoo>
+-->
+<odoo>
+    <record model="pp.department" id="department_lab">
+        <field name="name">แล็บ</field>
+    </record>
+    <record model="pp.department" id="department_admin">
+        <field name="name">ธุรการทั่วไป</field>
+    </record>
+    <record model="pp.department" id="department_qc">
+        <field name="name">คิวซี</field>
+    </record>
+    <record model="pp.department" id="inventory">
+        <field name="name">คลังสินค้า</field>
+    </record>
+    <record model="pp.department" id="managerial">
+        <field name="name">บริหาร</field>
+    </record>
+    <record model="pp.department" id="sugar_pump">
+        <field name="name">ตอกเม็ดน้ำตาล</field>
+    </record>
+    <record model="pp.department" id="chocolate_crunch">
+        <field name="name">บดช็อคโกแล็ต</field>
+    </record>
+    <record model="pp.department" id="chocolate_coater">
+        <field name="name">เคลือบช็อคโกแล็ต</field>
+    </record>
+    <record model="pp.department" id="chocolate_dripper">
+        <field name="name">หยอดช็อคโกแล็ต</field>
+    </record>
+    <record model="pp.department" id="chocolate_wrapper">
+        <field name="name">เครื่องห่อช็อคโกแล็ต</field>
+    </record>
+    <record model="pp.department" id="packager1">
+        <field name="name">แพ็คบรรจุ 1</field>
+    </record>
+    <record model="pp.department" id="packager2">
+        <field name="name">แพ็คบรรจุ 2</field>
+    </record>
+    <record model="pp.department" id="kneader">
+        <field name="name">นวด</field>
+    </record>
+    <record model="pp.department" id="candy_separator">
+        <field name="name">คัดเม็ดลูกอม</field>
+    </record>
+    <record model="pp.department" id="candy_wrapper">
+        <field name="name">เครื่องห่อลูกอม</field>
+    </record>
+    <record model="pp.department" id="candy_packager">
+        <field name="name">แพ็คลูกอม</field>
+    </record>
+    <record model="pp.department" id="end_of_line_packager">
+        <field name="name">ลงลังท้ายไลน์</field>
+    </record>
+    <record model="pp.department" id="candy_contractor">
+        <field name="name">รายเหมาลูกอม</field>
+    </record>
+    <record model="pp.department" id="packaging_contractor1">
+        <field name="name">รายเหมาบรรจุ 1</field>
+    </record>
+    <record model="pp.department" id="packaging_contractor2">
+        <field name="name">รายเหมาบรรจุ 2</field>
     </record>
 </odoo>

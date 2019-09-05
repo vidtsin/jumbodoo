@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-05 16:50+0000\n"
-"PO-Revision-Date: 2019-09-05 16:50+0000\n"
+"POT-Creation-Date: 2019-09-05 18:53+0000\n"
+"PO-Revision-Date: 2019-09-05 18:53+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -57,11 +57,14 @@ msgid "AB"
 msgstr "เอบี"
 
 #. module: pp_employee
+#: model:ir.model.fields,field_description:pp_employee.field_pp_department__message_needaction
 #: model:ir.model.fields,field_description:pp_employee.field_pp_employee__message_needaction
+#: model:ir.model.fields,field_description:pp_employee.field_pp_employee_category__message_needaction
 msgid "Action Needed"
 msgstr "ต้องดำเนินการ"
 
 #. module: pp_employee
+#: model:ir.model.fields,field_description:pp_employee.field_pp_department__active
 #: model:ir.model.fields,field_description:pp_employee.field_pp_employee__active
 msgid "Active"
 msgstr "เปิดใช้งาน"
@@ -79,17 +82,29 @@ msgstr "กิจกรรม"
 #. module: pp_employee
 #: model:ir.model.fields,field_description:pp_employee.field_pp_employee__activity_state
 msgid "Activity State"
-msgstr ""
+msgstr "สถานะกิจกรรม"
 
 #. module: pp_employee
 #: model:ir.model.fields,field_description:pp_employee.field_pp_employee__additional_note
 msgid "Additional Note"
-msgstr ""
+msgstr "โน๊ตเพิ่มเติม"
 
 #. module: pp_employee
+#: model:ir.ui.menu,name:pp_employee.pp_department_menu_departments
+msgid "All Departments"
+msgstr "แผนกทั้งหมด"
+
+#. module: pp_employee
+#: model:ir.ui.menu,name:pp_employee.pp_employee_menu_employees
+msgid "All Employees"
+msgstr "พนักงานทั้งหมด"
+
+#. module: pp_employee
+#: model:ir.model.fields,field_description:pp_employee.field_pp_department__message_attachment_count
 #: model:ir.model.fields,field_description:pp_employee.field_pp_employee__message_attachment_count
+#: model:ir.model.fields,field_description:pp_employee.field_pp_employee_category__message_attachment_count
 msgid "Attachment Count"
-msgstr ""
+msgstr "จำนวนเอกสารแนบ"
 
 #. module: pp_employee
 #: selection:pp.employee,certificate:0
@@ -117,6 +132,11 @@ msgid "Certificate Level"
 msgstr "ระดับใบประกาศนียบัตร"
 
 #. module: pp_employee
+#: model:ir.model.fields,field_description:pp_employee.field_pp_department__child_ids
+msgid "Child Departments"
+msgstr "หน่วยงานในสังกัด"
+
+#. module: pp_employee
 #: selection:pp.employee,religion:0
 msgid "Christian"
 msgstr "คริสต์"
@@ -127,14 +147,22 @@ msgid "Coach"
 msgstr "โค๊ช"
 
 #. module: pp_employee
+#: model:ir.model.fields,field_description:pp_employee.field_pp_department__color
 #: model:ir.model.fields,field_description:pp_employee.field_pp_employee__color
+#: model:ir.model.fields,field_description:pp_employee.field_pp_employee_category__color
 msgid "Color Index"
 msgstr "ดัชนีสี"
 
 #. module: pp_employee
+#: model:ir.model.fields,field_description:pp_employee.field_pp_department__company_id
 #: model:ir.model.fields,field_description:pp_employee.field_pp_employee__company_id
 msgid "Company"
 msgstr "บริษัท"
+
+#. module: pp_employee
+#: model:ir.model.fields,field_description:pp_employee.field_pp_department__complete_name
+msgid "Complete Name"
+msgstr "ชื่อเต็ม"
 
 #. module: pp_employee
 #: model:ir.model.fields,field_description:pp_employee.field_pp_employee__country_of_birth
@@ -142,17 +170,26 @@ msgid "Country of Birth"
 msgstr "เกิดที่ประเทศ"
 
 #. module: pp_employee
+#: model_terms:ir.actions.act_window,help:pp_employee.pp_department_list_action
+msgid "Create some department!"
+msgstr "ไม่พบแผนก กรุณาสร้างแผนกด้วยค่ะ"
+
+#. module: pp_employee
 #: model_terms:ir.actions.act_window,help:pp_employee.pp_employee_list_action
 msgid "Create some employee!"
 msgstr "ไม่พบพนักงาน กรุณาสร้างข้อมูลค่ะ"
 
 #. module: pp_employee
+#: model:ir.model.fields,field_description:pp_employee.field_pp_department__create_uid
 #: model:ir.model.fields,field_description:pp_employee.field_pp_employee__create_uid
+#: model:ir.model.fields,field_description:pp_employee.field_pp_employee_category__create_uid
 msgid "Created by"
 msgstr "สร้างโดย"
 
 #. module: pp_employee
+#: model:ir.model.fields,field_description:pp_employee.field_pp_department__create_date
 #: model:ir.model.fields,field_description:pp_employee.field_pp_employee__create_date
+#: model:ir.model.fields,field_description:pp_employee.field_pp_employee_category__create_date
 msgid "Created on"
 msgstr "สร้างเมื่อ"
 
@@ -173,7 +210,19 @@ msgid "Department"
 msgstr "แผนก"
 
 #. module: pp_employee
+#: model:ir.model.fields,field_description:pp_employee.field_pp_department__name
+msgid "Department Name"
+msgstr "ชื่อแผนก"
+
+#. module: pp_employee
+#: model:ir.ui.menu,name:pp_employee.pp_department_menu_jumbo_department
+msgid "Departments"
+msgstr "แผนก"
+
+#. module: pp_employee
+#: model:ir.model.fields,field_description:pp_employee.field_pp_department__display_name
 #: model:ir.model.fields,field_description:pp_employee.field_pp_employee__display_name
+#: model:ir.model.fields,field_description:pp_employee.field_pp_employee_category__display_name
 msgid "Display Name"
 msgstr "ชื่อที่ใช้แสดง"
 
@@ -218,6 +267,11 @@ msgid "Employee Documents"
 msgstr "เอกสารของพนักงาน"
 
 #. module: pp_employee
+#: model:ir.model.fields,field_description:pp_employee.field_pp_employee_category__name
+msgid "Employee Tag"
+msgstr "ป้ายกำกับบุคลากร"
+
+#. module: pp_employee
 #: model:ir.model.fields,help:pp_employee.field_pp_employee__bank_account_id
 msgid "Employee bank salary account"
 msgstr "บัญชีฝากเงินเดือนพนักงาน"
@@ -243,7 +297,8 @@ msgid "Employee's mother's work"
 msgstr "อาชีพมารดา"
 
 #. module: pp_employee
-#: model:ir.ui.menu,name:pp_employee.menu_employees
+#: model:ir.model.fields,field_description:pp_employee.field_pp_employee_category__employee_ids
+#: model:ir.ui.menu,name:pp_employee.pp_employee_menu_jumbo_employee
 msgid "Employees"
 msgstr "บุคลากร"
 
@@ -278,17 +333,23 @@ msgid "Firstname"
 msgstr "ชื่อ"
 
 #. module: pp_employee
+#: model:ir.model.fields,field_description:pp_employee.field_pp_department__message_follower_ids
 #: model:ir.model.fields,field_description:pp_employee.field_pp_employee__message_follower_ids
+#: model:ir.model.fields,field_description:pp_employee.field_pp_employee_category__message_follower_ids
 msgid "Followers"
 msgstr "ผู้ติดตาม"
 
 #. module: pp_employee
+#: model:ir.model.fields,field_description:pp_employee.field_pp_department__message_channel_ids
 #: model:ir.model.fields,field_description:pp_employee.field_pp_employee__message_channel_ids
+#: model:ir.model.fields,field_description:pp_employee.field_pp_employee_category__message_channel_ids
 msgid "Followers (Channels)"
 msgstr "ผู้ติดตาม (ช่องทาง)"
 
 #. module: pp_employee
+#: model:ir.model.fields,field_description:pp_employee.field_pp_department__message_partner_ids
 #: model:ir.model.fields,field_description:pp_employee.field_pp_employee__message_partner_ids
+#: model:ir.model.fields,field_description:pp_employee.field_pp_employee_category__message_partner_ids
 msgid "Followers (Partners)"
 msgstr "ผู้ติดตาม (คู่ค้า)"
 
@@ -318,7 +379,9 @@ msgid "Hometown"
 msgstr "ภูมิลำเนา"
 
 #. module: pp_employee
+#: model:ir.model.fields,field_description:pp_employee.field_pp_department__id
 #: model:ir.model.fields,field_description:pp_employee.field_pp_employee__id
+#: model:ir.model.fields,field_description:pp_employee.field_pp_employee_category__id
 msgid "ID"
 msgstr "รหัส"
 
@@ -338,17 +401,23 @@ msgid "Identification No"
 msgstr "บัตรประชาชน"
 
 #. module: pp_employee
+#: model:ir.model.fields,help:pp_employee.field_pp_department__message_unread
 #: model:ir.model.fields,help:pp_employee.field_pp_employee__message_unread
+#: model:ir.model.fields,help:pp_employee.field_pp_employee_category__message_unread
 msgid "If checked new messages require your attention."
 msgstr "ถ้าเลือก ข้อความใหม่จะต้องการความสนใจจากคุณ"
 
 #. module: pp_employee
+#: model:ir.model.fields,help:pp_employee.field_pp_department__message_needaction
 #: model:ir.model.fields,help:pp_employee.field_pp_employee__message_needaction
+#: model:ir.model.fields,help:pp_employee.field_pp_employee_category__message_needaction
 msgid "If checked, new messages require your attention."
 msgstr "ถ้าเลือก ข้อความใหม่จะต้องการความสนใจจากคุณ"
 
 #. module: pp_employee
+#: model:ir.model.fields,help:pp_employee.field_pp_department__message_has_error
 #: model:ir.model.fields,help:pp_employee.field_pp_employee__message_has_error
+#: model:ir.model.fields,help:pp_employee.field_pp_employee_category__message_has_error
 msgid "If checked, some messages have a delivery error."
 msgstr ""
 
@@ -358,7 +427,9 @@ msgid "If the active field is set to False, it will allow you to hide the resour
 msgstr ""
 
 #. module: pp_employee
+#: model:ir.model.fields,field_description:pp_employee.field_pp_department__message_is_follower
 #: model:ir.model.fields,field_description:pp_employee.field_pp_employee__message_is_follower
+#: model:ir.model.fields,field_description:pp_employee.field_pp_employee_category__message_is_follower
 msgid "Is Follower"
 msgstr "เป็นผู้ติดตาม"
 
@@ -378,6 +449,16 @@ msgid "Job Title"
 msgstr "ตำแหน่ง"
 
 #. module: pp_employee
+#: model:ir.model.fields,field_description:pp_employee.field_pp_department__jobs_ids
+msgid "Jobs"
+msgstr "งาน"
+
+#. module: pp_employee
+#: model:ir.actions.act_window,name:pp_employee.pp_department_list_action
+msgid "Jumbo Departments"
+msgstr "แผนก"
+
+#. module: pp_employee
 #: model_terms:ir.ui.view,arch_db:pp_employee.pp_employee_form_view
 msgid "Jumbo Employee Form"
 msgstr "ฟอร์มพนักงาน"
@@ -389,10 +470,13 @@ msgstr "รายชื่อพนักงาน"
 
 #. module: pp_employee
 #: model:ir.actions.act_window,name:pp_employee.pp_employee_list_action
-#: model:ir.ui.menu,name:pp_employee.menu_jumbo_employee
-#: model:ir.ui.menu,name:pp_employee.menu_root
 msgid "Jumbo Employees"
 msgstr "พนักงานเอเชียจัมโบ้"
+
+#. module: pp_employee
+#: model:ir.ui.menu,name:pp_employee.pp_employee_menu_root
+msgid "Jumbo Industry"
+msgstr "จัมโบ้อินดัสตรีส์"
 
 #. module: pp_employee
 #: selection:pp.employee,financial_institution:0
@@ -415,17 +499,23 @@ msgid "Krung Thai"
 msgstr "ธนาคารกรุงไทย"
 
 #. module: pp_employee
+#: model:ir.model.fields,field_description:pp_employee.field_pp_department____last_update
 #: model:ir.model.fields,field_description:pp_employee.field_pp_employee____last_update
+#: model:ir.model.fields,field_description:pp_employee.field_pp_employee_category____last_update
 msgid "Last Modified on"
 msgstr "แก้ไขครั้งสุดท้ายเมื่อ"
 
 #. module: pp_employee
+#: model:ir.model.fields,field_description:pp_employee.field_pp_department__write_uid
 #: model:ir.model.fields,field_description:pp_employee.field_pp_employee__write_uid
+#: model:ir.model.fields,field_description:pp_employee.field_pp_employee_category__write_uid
 msgid "Last Updated by"
 msgstr "อัพเดทครั้งสุดท้ายโดย"
 
 #. module: pp_employee
+#: model:ir.model.fields,field_description:pp_employee.field_pp_department__write_date
 #: model:ir.model.fields,field_description:pp_employee.field_pp_employee__write_date
+#: model:ir.model.fields,field_description:pp_employee.field_pp_employee_category__write_date
 msgid "Last Updated on"
 msgstr "อัพเดทครั้งสุดท้ายเมื่อ"
 
@@ -437,10 +527,12 @@ msgstr "สกุล"
 #. module: pp_employee
 #: selection:pp.employee,marital:0
 msgid "Legal Cohabitant"
-msgstr "สถานภาพสมรส"
+msgstr "สถานะภาพสมรส"
 
 #. module: pp_employee
+#: model:ir.model.fields,field_description:pp_employee.field_pp_department__message_main_attachment_id
 #: model:ir.model.fields,field_description:pp_employee.field_pp_employee__message_main_attachment_id
+#: model:ir.model.fields,field_description:pp_employee.field_pp_employee_category__message_main_attachment_id
 msgid "Main Attachment"
 msgstr ""
 
@@ -450,6 +542,7 @@ msgid "Male"
 msgstr "ชาย"
 
 #. module: pp_employee
+#: model:ir.model.fields,field_description:pp_employee.field_pp_department__manager_id
 #: model:ir.model.fields,field_description:pp_employee.field_pp_employee__parent_id
 msgid "Manager"
 msgstr "ผู้จัดการ"
@@ -457,7 +550,7 @@ msgstr "ผู้จัดการ"
 #. module: pp_employee
 #: model:ir.model.fields,field_description:pp_employee.field_pp_employee__marital
 msgid "Marital Status"
-msgstr "สถานภาพสมรส"
+msgstr "สถานะภาพ"
 
 #. module: pp_employee
 #: selection:pp.employee,marital:0
@@ -480,12 +573,21 @@ msgid "Medium-sized photo of the employee. It is automatically resized as a 128x
 msgstr "รูปถ่ายพนักงานขนาดกลาง จะถูกปรับขนาดเป็น 128x128 px อัตโนมัติ"
 
 #. module: pp_employee
+#: model:ir.model.fields,field_description:pp_employee.field_pp_department__member_ids
+msgid "Members"
+msgstr "สมาชิก"
+
+#. module: pp_employee
+#: model:ir.model.fields,field_description:pp_employee.field_pp_department__message_has_error
 #: model:ir.model.fields,field_description:pp_employee.field_pp_employee__message_has_error
+#: model:ir.model.fields,field_description:pp_employee.field_pp_employee_category__message_has_error
 msgid "Message Delivery error"
 msgstr "เกิดข้อผิดพลาดในการส่งข้อความ"
 
 #. module: pp_employee
+#: model:ir.model.fields,field_description:pp_employee.field_pp_department__message_ids
 #: model:ir.model.fields,field_description:pp_employee.field_pp_employee__message_ids
+#: model:ir.model.fields,field_description:pp_employee.field_pp_employee_category__message_ids
 msgid "Messages"
 msgstr "ข้อความ"
 
@@ -547,7 +649,7 @@ msgstr ""
 #. module: pp_employee
 #: selection:pp.employee,religion:0
 msgid "No Religion"
-msgstr "ไม่ระบุศาสนา"
+msgstr "ไม่มีศาสนา"
 
 #. module: pp_employee
 #: selection:pp.employee,military_status:0
@@ -555,24 +657,9 @@ msgid "Not Applicable"
 msgstr "ไม่ระบุ"
 
 #. module: pp_employee
-#: model:pp.employee,father_name:pp_employee.pp_employee_demo_1
-#: model:pp.employee,father_name:pp_employee.pp_employee_demo_2
-#: model:pp.employee,father_occupation:pp_employee.pp_employee_demo_1
-#: model:pp.employee,father_occupation:pp_employee.pp_employee_demo_2
-#: model:pp.employee,mother_name:pp_employee.pp_employee_demo_1
-#: model:pp.employee,mother_name:pp_employee.pp_employee_demo_2
-#: model:pp.employee,mother_occupation:pp_employee.pp_employee_demo_1
-#: model:pp.employee,mother_occupation:pp_employee.pp_employee_demo_2
-#: model:pp.employee,spouse_job_title:pp_employee.pp_employee_demo_1
-#: model:pp.employee,spouse_job_title:pp_employee.pp_employee_demo_2
-#: model:pp.employee,spouse_name:pp_employee.pp_employee_demo_1
-#: model:pp.employee,spouse_name:pp_employee.pp_employee_demo_2
-#: model:pp.employee,spouse_occupation:pp_employee.pp_employee_demo_1
-#: model:pp.employee,spouse_occupation:pp_employee.pp_employee_demo_2
-#: model:pp.employee,spouse_work_address:pp_employee.pp_employee_demo_1
-#: model:pp.employee,spouse_work_address:pp_employee.pp_employee_demo_2
-msgid "Not Disclosed"
-msgstr "ไม่ระบุ"
+#: model:ir.model.fields,field_description:pp_employee.field_pp_department__note
+msgid "Note"
+msgstr "โน้ต"
 
 #. module: pp_employee
 #: model:ir.model.fields,field_description:pp_employee.field_pp_employee__notes
@@ -580,7 +667,9 @@ msgid "Notes"
 msgstr "โน้ต"
 
 #. module: pp_employee
+#: model:ir.model.fields,field_description:pp_employee.field_pp_department__message_needaction_counter
 #: model:ir.model.fields,field_description:pp_employee.field_pp_employee__message_needaction_counter
+#: model:ir.model.fields,field_description:pp_employee.field_pp_employee_category__message_needaction_counter
 msgid "Number of Actions"
 msgstr "จำนวนกิจกรรม"
 
@@ -590,22 +679,30 @@ msgid "Number of Children"
 msgstr "จำนวนบุตรธิดา"
 
 #. module: pp_employee
+#: model:ir.model.fields,field_description:pp_employee.field_pp_department__message_has_error_counter
 #: model:ir.model.fields,field_description:pp_employee.field_pp_employee__message_has_error_counter
+#: model:ir.model.fields,field_description:pp_employee.field_pp_employee_category__message_has_error_counter
 msgid "Number of error"
-msgstr "ข้อผิดผลาดทั้งหมด"
+msgstr ""
 
 #. module: pp_employee
+#: model:ir.model.fields,help:pp_employee.field_pp_department__message_needaction_counter
 #: model:ir.model.fields,help:pp_employee.field_pp_employee__message_needaction_counter
+#: model:ir.model.fields,help:pp_employee.field_pp_employee_category__message_needaction_counter
 msgid "Number of messages which requires an action"
 msgstr "ข้อความที่ต้องจัดการ"
 
 #. module: pp_employee
+#: model:ir.model.fields,help:pp_employee.field_pp_department__message_has_error_counter
 #: model:ir.model.fields,help:pp_employee.field_pp_employee__message_has_error_counter
+#: model:ir.model.fields,help:pp_employee.field_pp_employee_category__message_has_error_counter
 msgid "Number of messages with delivery error"
 msgstr "ข้อความที่ส่งไม่ได้"
 
 #. module: pp_employee
+#: model:ir.model.fields,help:pp_employee.field_pp_department__message_unread_counter
 #: model:ir.model.fields,help:pp_employee.field_pp_employee__message_unread_counter
+#: model:ir.model.fields,help:pp_employee.field_pp_employee_category__message_unread_counter
 msgid "Number of unread messages"
 msgstr "ข้อความที่ยังไม่ได้อ่าน"
 
@@ -621,7 +718,7 @@ msgid "Overdue"
 msgstr "เกินกำหนด"
 
 #. module: pp_employee
-#: model:res.groups,name:pp_employee.pp_employee_group_manager
+#: model:res.groups,name:pp_employee.pp_group_manager
 msgid "PP Employee Admin"
 msgstr "เจ้าหน้าที่จัดการข้อมูลพนักงาน"
 
@@ -629,6 +726,11 @@ msgstr "เจ้าหน้าที่จัดการข้อมูลพ
 #: model:ir.model,name:pp_employee.model_pp_employee
 msgid "PP Employee Model for Jumbo Industry"
 msgstr "โมเดลสำหรับพนักงานโดยพีพีสมาร์ทโปรดักส์ เพื่อบริษัทเอเชียจัมโบ้อินดัสตรีส์"
+
+#. module: pp_employee
+#: model:ir.model.fields,field_description:pp_employee.field_pp_department__parent_id
+msgid "Parent Department"
+msgstr "ภายใต้สังกัด"
 
 #. module: pp_employee
 #: selection:pp.employee,military_status:0
@@ -869,12 +971,16 @@ msgid "Today"
 msgstr "วันนี้"
 
 #. module: pp_employee
+#: model:ir.model.fields,field_description:pp_employee.field_pp_department__message_unread
 #: model:ir.model.fields,field_description:pp_employee.field_pp_employee__message_unread
+#: model:ir.model.fields,field_description:pp_employee.field_pp_employee_category__message_unread
 msgid "Unread Messages"
 msgstr "ข้อความที่ยังไม่ได้อ่าน"
 
 #. module: pp_employee
+#: model:ir.model.fields,field_description:pp_employee.field_pp_department__message_unread_counter
 #: model:ir.model.fields,field_description:pp_employee.field_pp_employee__message_unread_counter
+#: model:ir.model.fields,field_description:pp_employee.field_pp_employee_category__message_unread_counter
 msgid "Unread Messages Counter"
 msgstr "จำนวนข้อความที่ยังไม่ได้อ่าน"
 
@@ -947,4 +1053,14 @@ msgstr "ชั่วโมงทำงาน"
 #: model:ir.model.fields,field_description:pp_employee.field_pp_employee__age
 msgid "employee's age"
 msgstr "อายุ"
+
+#. module: pp_employee
+#: model:ir.model,name:pp_employee.model_pp_department
+msgid "pp company department model for jumbo industry"
+msgstr ""
+
+#. module: pp_employee
+#: model:ir.model,name:pp_employee.model_pp_employee_category
+msgid "pp employee category model for jumbo industry"
+msgstr ""
 

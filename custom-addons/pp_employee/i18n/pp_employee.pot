@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-05 16:50+0000\n"
-"PO-Revision-Date: 2019-09-05 16:50+0000\n"
+"POT-Creation-Date: 2019-09-05 18:52+0000\n"
+"PO-Revision-Date: 2019-09-05 18:52+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -53,12 +53,12 @@ msgstr ""
 
 #. module: pp_employee
 #: model:pp.employee,age:pp_employee.pp_employee_demo_1
-msgid "0 year 0 month -10 day"
+msgid "0 ปี 0 เดือน -10 วัน"
 msgstr ""
 
 #. module: pp_employee
 #: model:pp.employee,age:pp_employee.pp_employee_demo_2
-msgid "0 year 0 month 3 days"
+msgid "0 ปี 0 เดือน 3 วัน"
 msgstr ""
 
 #. module: pp_employee
@@ -97,11 +97,14 @@ msgid "AB"
 msgstr ""
 
 #. module: pp_employee
+#: model:ir.model.fields,field_description:pp_employee.field_pp_department__message_needaction
 #: model:ir.model.fields,field_description:pp_employee.field_pp_employee__message_needaction
+#: model:ir.model.fields,field_description:pp_employee.field_pp_employee_category__message_needaction
 msgid "Action Needed"
 msgstr ""
 
 #. module: pp_employee
+#: model:ir.model.fields,field_description:pp_employee.field_pp_department__active
 #: model:ir.model.fields,field_description:pp_employee.field_pp_employee__active
 msgid "Active"
 msgstr ""
@@ -127,7 +130,19 @@ msgid "Additional Note"
 msgstr ""
 
 #. module: pp_employee
+#: model:ir.ui.menu,name:pp_employee.pp_department_menu_departments
+msgid "All Departments"
+msgstr ""
+
+#. module: pp_employee
+#: model:ir.ui.menu,name:pp_employee.pp_employee_menu_employees
+msgid "All Employees"
+msgstr ""
+
+#. module: pp_employee
+#: model:ir.model.fields,field_description:pp_employee.field_pp_department__message_attachment_count
 #: model:ir.model.fields,field_description:pp_employee.field_pp_employee__message_attachment_count
+#: model:ir.model.fields,field_description:pp_employee.field_pp_employee_category__message_attachment_count
 msgid "Attachment Count"
 msgstr ""
 
@@ -157,6 +172,11 @@ msgid "Certificate Level"
 msgstr ""
 
 #. module: pp_employee
+#: model:ir.model.fields,field_description:pp_employee.field_pp_department__child_ids
+msgid "Child Departments"
+msgstr ""
+
+#. module: pp_employee
 #: selection:pp.employee,religion:0
 msgid "Christian"
 msgstr ""
@@ -167,13 +187,21 @@ msgid "Coach"
 msgstr ""
 
 #. module: pp_employee
+#: model:ir.model.fields,field_description:pp_employee.field_pp_department__color
 #: model:ir.model.fields,field_description:pp_employee.field_pp_employee__color
+#: model:ir.model.fields,field_description:pp_employee.field_pp_employee_category__color
 msgid "Color Index"
 msgstr ""
 
 #. module: pp_employee
+#: model:ir.model.fields,field_description:pp_employee.field_pp_department__company_id
 #: model:ir.model.fields,field_description:pp_employee.field_pp_employee__company_id
 msgid "Company"
+msgstr ""
+
+#. module: pp_employee
+#: model:ir.model.fields,field_description:pp_employee.field_pp_department__complete_name
+msgid "Complete Name"
 msgstr ""
 
 #. module: pp_employee
@@ -182,17 +210,26 @@ msgid "Country of Birth"
 msgstr ""
 
 #. module: pp_employee
+#: model_terms:ir.actions.act_window,help:pp_employee.pp_department_list_action
+msgid "Create some department!"
+msgstr ""
+
+#. module: pp_employee
 #: model_terms:ir.actions.act_window,help:pp_employee.pp_employee_list_action
 msgid "Create some employee!"
 msgstr ""
 
 #. module: pp_employee
+#: model:ir.model.fields,field_description:pp_employee.field_pp_department__create_uid
 #: model:ir.model.fields,field_description:pp_employee.field_pp_employee__create_uid
+#: model:ir.model.fields,field_description:pp_employee.field_pp_employee_category__create_uid
 msgid "Created by"
 msgstr ""
 
 #. module: pp_employee
+#: model:ir.model.fields,field_description:pp_employee.field_pp_department__create_date
 #: model:ir.model.fields,field_description:pp_employee.field_pp_employee__create_date
+#: model:ir.model.fields,field_description:pp_employee.field_pp_employee_category__create_date
 msgid "Created on"
 msgstr ""
 
@@ -213,7 +250,19 @@ msgid "Department"
 msgstr ""
 
 #. module: pp_employee
+#: model:ir.model.fields,field_description:pp_employee.field_pp_department__name
+msgid "Department Name"
+msgstr ""
+
+#. module: pp_employee
+#: model:ir.ui.menu,name:pp_employee.pp_department_menu_jumbo_department
+msgid "Departments"
+msgstr ""
+
+#. module: pp_employee
+#: model:ir.model.fields,field_description:pp_employee.field_pp_department__display_name
 #: model:ir.model.fields,field_description:pp_employee.field_pp_employee__display_name
+#: model:ir.model.fields,field_description:pp_employee.field_pp_employee_category__display_name
 msgid "Display Name"
 msgstr ""
 
@@ -258,6 +307,11 @@ msgid "Employee Documents"
 msgstr ""
 
 #. module: pp_employee
+#: model:ir.model.fields,field_description:pp_employee.field_pp_employee_category__name
+msgid "Employee Tag"
+msgstr ""
+
+#. module: pp_employee
 #: model:ir.model.fields,help:pp_employee.field_pp_employee__bank_account_id
 msgid "Employee bank salary account"
 msgstr ""
@@ -283,7 +337,8 @@ msgid "Employee's mother's work"
 msgstr ""
 
 #. module: pp_employee
-#: model:ir.ui.menu,name:pp_employee.menu_employees
+#: model:ir.model.fields,field_description:pp_employee.field_pp_employee_category__employee_ids
+#: model:ir.ui.menu,name:pp_employee.pp_employee_menu_jumbo_employee
 msgid "Employees"
 msgstr ""
 
@@ -318,17 +373,23 @@ msgid "Firstname"
 msgstr ""
 
 #. module: pp_employee
+#: model:ir.model.fields,field_description:pp_employee.field_pp_department__message_follower_ids
 #: model:ir.model.fields,field_description:pp_employee.field_pp_employee__message_follower_ids
+#: model:ir.model.fields,field_description:pp_employee.field_pp_employee_category__message_follower_ids
 msgid "Followers"
 msgstr ""
 
 #. module: pp_employee
+#: model:ir.model.fields,field_description:pp_employee.field_pp_department__message_channel_ids
 #: model:ir.model.fields,field_description:pp_employee.field_pp_employee__message_channel_ids
+#: model:ir.model.fields,field_description:pp_employee.field_pp_employee_category__message_channel_ids
 msgid "Followers (Channels)"
 msgstr ""
 
 #. module: pp_employee
+#: model:ir.model.fields,field_description:pp_employee.field_pp_department__message_partner_ids
 #: model:ir.model.fields,field_description:pp_employee.field_pp_employee__message_partner_ids
+#: model:ir.model.fields,field_description:pp_employee.field_pp_employee_category__message_partner_ids
 msgid "Followers (Partners)"
 msgstr ""
 
@@ -358,7 +419,9 @@ msgid "Hometown"
 msgstr ""
 
 #. module: pp_employee
+#: model:ir.model.fields,field_description:pp_employee.field_pp_department__id
 #: model:ir.model.fields,field_description:pp_employee.field_pp_employee__id
+#: model:ir.model.fields,field_description:pp_employee.field_pp_employee_category__id
 msgid "ID"
 msgstr ""
 
@@ -378,17 +441,23 @@ msgid "Identification No"
 msgstr ""
 
 #. module: pp_employee
+#: model:ir.model.fields,help:pp_employee.field_pp_department__message_unread
 #: model:ir.model.fields,help:pp_employee.field_pp_employee__message_unread
+#: model:ir.model.fields,help:pp_employee.field_pp_employee_category__message_unread
 msgid "If checked new messages require your attention."
 msgstr ""
 
 #. module: pp_employee
+#: model:ir.model.fields,help:pp_employee.field_pp_department__message_needaction
 #: model:ir.model.fields,help:pp_employee.field_pp_employee__message_needaction
+#: model:ir.model.fields,help:pp_employee.field_pp_employee_category__message_needaction
 msgid "If checked, new messages require your attention."
 msgstr ""
 
 #. module: pp_employee
+#: model:ir.model.fields,help:pp_employee.field_pp_department__message_has_error
 #: model:ir.model.fields,help:pp_employee.field_pp_employee__message_has_error
+#: model:ir.model.fields,help:pp_employee.field_pp_employee_category__message_has_error
 msgid "If checked, some messages have a delivery error."
 msgstr ""
 
@@ -398,7 +467,9 @@ msgid "If the active field is set to False, it will allow you to hide the resour
 msgstr ""
 
 #. module: pp_employee
+#: model:ir.model.fields,field_description:pp_employee.field_pp_department__message_is_follower
 #: model:ir.model.fields,field_description:pp_employee.field_pp_employee__message_is_follower
+#: model:ir.model.fields,field_description:pp_employee.field_pp_employee_category__message_is_follower
 msgid "Is Follower"
 msgstr ""
 
@@ -418,6 +489,16 @@ msgid "Job Title"
 msgstr ""
 
 #. module: pp_employee
+#: model:ir.model.fields,field_description:pp_employee.field_pp_department__jobs_ids
+msgid "Jobs"
+msgstr ""
+
+#. module: pp_employee
+#: model:ir.actions.act_window,name:pp_employee.pp_department_list_action
+msgid "Jumbo Departments"
+msgstr ""
+
+#. module: pp_employee
 #: model_terms:ir.ui.view,arch_db:pp_employee.pp_employee_form_view
 msgid "Jumbo Employee Form"
 msgstr ""
@@ -429,9 +510,12 @@ msgstr ""
 
 #. module: pp_employee
 #: model:ir.actions.act_window,name:pp_employee.pp_employee_list_action
-#: model:ir.ui.menu,name:pp_employee.menu_jumbo_employee
-#: model:ir.ui.menu,name:pp_employee.menu_root
 msgid "Jumbo Employees"
+msgstr ""
+
+#. module: pp_employee
+#: model:ir.ui.menu,name:pp_employee.pp_employee_menu_root
+msgid "Jumbo Industry"
 msgstr ""
 
 #. module: pp_employee
@@ -455,17 +539,23 @@ msgid "Krung Thai"
 msgstr ""
 
 #. module: pp_employee
+#: model:ir.model.fields,field_description:pp_employee.field_pp_department____last_update
 #: model:ir.model.fields,field_description:pp_employee.field_pp_employee____last_update
+#: model:ir.model.fields,field_description:pp_employee.field_pp_employee_category____last_update
 msgid "Last Modified on"
 msgstr ""
 
 #. module: pp_employee
+#: model:ir.model.fields,field_description:pp_employee.field_pp_department__write_uid
 #: model:ir.model.fields,field_description:pp_employee.field_pp_employee__write_uid
+#: model:ir.model.fields,field_description:pp_employee.field_pp_employee_category__write_uid
 msgid "Last Updated by"
 msgstr ""
 
 #. module: pp_employee
+#: model:ir.model.fields,field_description:pp_employee.field_pp_department__write_date
 #: model:ir.model.fields,field_description:pp_employee.field_pp_employee__write_date
+#: model:ir.model.fields,field_description:pp_employee.field_pp_employee_category__write_date
 msgid "Last Updated on"
 msgstr ""
 
@@ -480,7 +570,9 @@ msgid "Legal Cohabitant"
 msgstr ""
 
 #. module: pp_employee
+#: model:ir.model.fields,field_description:pp_employee.field_pp_department__message_main_attachment_id
 #: model:ir.model.fields,field_description:pp_employee.field_pp_employee__message_main_attachment_id
+#: model:ir.model.fields,field_description:pp_employee.field_pp_employee_category__message_main_attachment_id
 msgid "Main Attachment"
 msgstr ""
 
@@ -490,6 +582,7 @@ msgid "Male"
 msgstr ""
 
 #. module: pp_employee
+#: model:ir.model.fields,field_description:pp_employee.field_pp_department__manager_id
 #: model:ir.model.fields,field_description:pp_employee.field_pp_employee__parent_id
 msgid "Manager"
 msgstr ""
@@ -520,12 +613,21 @@ msgid "Medium-sized photo of the employee. It is automatically resized as a 128x
 msgstr ""
 
 #. module: pp_employee
+#: model:ir.model.fields,field_description:pp_employee.field_pp_department__member_ids
+msgid "Members"
+msgstr ""
+
+#. module: pp_employee
+#: model:ir.model.fields,field_description:pp_employee.field_pp_department__message_has_error
 #: model:ir.model.fields,field_description:pp_employee.field_pp_employee__message_has_error
+#: model:ir.model.fields,field_description:pp_employee.field_pp_employee_category__message_has_error
 msgid "Message Delivery error"
 msgstr ""
 
 #. module: pp_employee
+#: model:ir.model.fields,field_description:pp_employee.field_pp_department__message_ids
 #: model:ir.model.fields,field_description:pp_employee.field_pp_employee__message_ids
+#: model:ir.model.fields,field_description:pp_employee.field_pp_employee_category__message_ids
 msgid "Messages"
 msgstr ""
 
@@ -615,12 +717,19 @@ msgid "Not Disclosed"
 msgstr ""
 
 #. module: pp_employee
+#: model:ir.model.fields,field_description:pp_employee.field_pp_department__note
+msgid "Note"
+msgstr ""
+
+#. module: pp_employee
 #: model:ir.model.fields,field_description:pp_employee.field_pp_employee__notes
 msgid "Notes"
 msgstr ""
 
 #. module: pp_employee
+#: model:ir.model.fields,field_description:pp_employee.field_pp_department__message_needaction_counter
 #: model:ir.model.fields,field_description:pp_employee.field_pp_employee__message_needaction_counter
+#: model:ir.model.fields,field_description:pp_employee.field_pp_employee_category__message_needaction_counter
 msgid "Number of Actions"
 msgstr ""
 
@@ -630,22 +739,30 @@ msgid "Number of Children"
 msgstr ""
 
 #. module: pp_employee
+#: model:ir.model.fields,field_description:pp_employee.field_pp_department__message_has_error_counter
 #: model:ir.model.fields,field_description:pp_employee.field_pp_employee__message_has_error_counter
+#: model:ir.model.fields,field_description:pp_employee.field_pp_employee_category__message_has_error_counter
 msgid "Number of error"
 msgstr ""
 
 #. module: pp_employee
+#: model:ir.model.fields,help:pp_employee.field_pp_department__message_needaction_counter
 #: model:ir.model.fields,help:pp_employee.field_pp_employee__message_needaction_counter
+#: model:ir.model.fields,help:pp_employee.field_pp_employee_category__message_needaction_counter
 msgid "Number of messages which requires an action"
 msgstr ""
 
 #. module: pp_employee
+#: model:ir.model.fields,help:pp_employee.field_pp_department__message_has_error_counter
 #: model:ir.model.fields,help:pp_employee.field_pp_employee__message_has_error_counter
+#: model:ir.model.fields,help:pp_employee.field_pp_employee_category__message_has_error_counter
 msgid "Number of messages with delivery error"
 msgstr ""
 
 #. module: pp_employee
+#: model:ir.model.fields,help:pp_employee.field_pp_department__message_unread_counter
 #: model:ir.model.fields,help:pp_employee.field_pp_employee__message_unread_counter
+#: model:ir.model.fields,help:pp_employee.field_pp_employee_category__message_unread_counter
 msgid "Number of unread messages"
 msgstr ""
 
@@ -661,13 +778,18 @@ msgid "Overdue"
 msgstr ""
 
 #. module: pp_employee
-#: model:res.groups,name:pp_employee.pp_employee_group_manager
+#: model:res.groups,name:pp_employee.pp_group_manager
 msgid "PP Employee Admin"
 msgstr ""
 
 #. module: pp_employee
 #: model:ir.model,name:pp_employee.model_pp_employee
 msgid "PP Employee Model for Jumbo Industry"
+msgstr ""
+
+#. module: pp_employee
+#: model:ir.model.fields,field_description:pp_employee.field_pp_department__parent_id
+msgid "Parent Department"
 msgstr ""
 
 #. module: pp_employee
@@ -909,12 +1031,16 @@ msgid "Today"
 msgstr ""
 
 #. module: pp_employee
+#: model:ir.model.fields,field_description:pp_employee.field_pp_department__message_unread
 #: model:ir.model.fields,field_description:pp_employee.field_pp_employee__message_unread
+#: model:ir.model.fields,field_description:pp_employee.field_pp_employee_category__message_unread
 msgid "Unread Messages"
 msgstr ""
 
 #. module: pp_employee
+#: model:ir.model.fields,field_description:pp_employee.field_pp_department__message_unread_counter
 #: model:ir.model.fields,field_description:pp_employee.field_pp_employee__message_unread_counter
+#: model:ir.model.fields,field_description:pp_employee.field_pp_employee_category__message_unread_counter
 msgid "Unread Messages Counter"
 msgstr ""
 
@@ -996,6 +1122,16 @@ msgstr ""
 #. module: pp_employee
 #: model:pp.employee,english_name:pp_employee.pp_employee_demo_1
 msgid "johnson five fckng dude"
+msgstr ""
+
+#. module: pp_employee
+#: model:ir.model,name:pp_employee.model_pp_department
+msgid "pp company department model for jumbo industry"
+msgstr ""
+
+#. module: pp_employee
+#: model:ir.model,name:pp_employee.model_pp_employee_category
+msgid "pp employee category model for jumbo industry"
 msgstr ""
 
 #. module: pp_employee

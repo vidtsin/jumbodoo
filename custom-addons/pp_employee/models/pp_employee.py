@@ -109,6 +109,13 @@ class PPEmployee(models.Model):
     spouse_current_out_of_job_date = fields.Date("Spouse Out-of-Job Date", translate=True)
     spouse_current_out_of_job_reason = fields.Char("Spouse Out-of-Job Reason", translate=True)
 
+    employee_type = fields.Selection([('0', 'Full Time'), ('1', 'Daily'), ('2', 'Per Piece')],
+                                     string="Employee Type",
+                                     default='1',
+                                     translate=True)
+
+    employee_payrate = fields.Integer(string='Pay Rate', translate=True, default=0)
+
     @api.depends('birthday')
     def _get_age(self):
         for record in self:

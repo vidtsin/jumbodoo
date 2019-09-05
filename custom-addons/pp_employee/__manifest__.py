@@ -28,7 +28,6 @@
         'security/security.xml',
         'security/ir.model.access.csv',
         'data/departments.xml',
-        'data/employee_categories.xml',
         'views/employee_views.xml',
         'views/templates.xml',
     ],
