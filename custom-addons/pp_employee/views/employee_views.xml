@@ -72,7 +72,7 @@
 
         <!-- Top menu item -->
         <menuitem name="Jumbo Employees" id="pp_employee.menu_root"
-                  web_icon="pp_employee,static/description/icon.png/"/>
+                  web_icon="pp_employee,static/description/icon.png"/>
         <!-- menu categories -->
         <menuitem name="Jumbo Employees" id="pp_employee.menu_jumbo_employee" parent="pp_employee.menu_root"/>
         <menuitem name="Employees" id="pp_employee.menu_employees" parent="pp_employee.menu_jumbo_employee"
