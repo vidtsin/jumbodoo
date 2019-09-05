@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-05 12:56+0000\n"
-"PO-Revision-Date: 2019-09-05 12:56+0000\n"
+"POT-Creation-Date: 2019-09-05 16:50+0000\n"
+"PO-Revision-Date: 2019-09-05 16:50+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -16,55 +16,65 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: pp_employee
-#: code:addons/pp_employee/models/pp_employee.py:71
+#: code:addons/pp_employee/models/pp_employee.py:132
 #, python-format
 msgid "%s day"
 msgstr "%s วัน"
 
 #. module: pp_employee
-#: code:addons/pp_employee/models/pp_employee.py:69
+#: code:addons/pp_employee/models/pp_employee.py:130
 #, python-format
 msgid "%s days"
 msgstr "%s วัน"
 
 #. module: pp_employee
-#: code:addons/pp_employee/models/pp_employee.py:66
+#: code:addons/pp_employee/models/pp_employee.py:127
 #, python-format
 msgid "%s month"
 msgstr "%s เดือน"
 
 #. module: pp_employee
-#: code:addons/pp_employee/models/pp_employee.py:64
+#: code:addons/pp_employee/models/pp_employee.py:125
 #, python-format
 msgid "%s months"
 msgstr "%s เดือน"
 
 #. module: pp_employee
-#: code:addons/pp_employee/models/pp_employee.py:61
+#: code:addons/pp_employee/models/pp_employee.py:122
 #, python-format
 msgid "%s year"
 msgstr "%s ปี"
 
 #. module: pp_employee
-#: code:addons/pp_employee/models/pp_employee.py:59
+#: code:addons/pp_employee/models/pp_employee.py:120
 #, python-format
 msgid "%s years"
 msgstr "%s ปี"
 
 #. module: pp_employee
+#: selection:pp.employee,blood_type:0
+msgid "AB"
+msgstr "เอบี"
+
+#. module: pp_employee
 #: model:ir.model.fields,field_description:pp_employee.field_pp_employee__message_needaction
 msgid "Action Needed"
-msgstr ""
+msgstr "ต้องดำเนินการ"
 
 #. module: pp_employee
 #: model:ir.model.fields,field_description:pp_employee.field_pp_employee__active
 msgid "Active"
-msgstr ""
+msgstr "เปิดใช้งาน"
+
+#. module: pp_employee
+#: selection:pp.employee,military_status:0
+msgid "Active Duty"
+msgstr "กำลังรับราชการทหาร"
 
 #. module: pp_employee
 #: model:ir.model.fields,field_description:pp_employee.field_pp_employee__activity_ids
 msgid "Activities"
-msgstr ""
+msgstr "กิจกรรม"
 
 #. module: pp_employee
 #: model:ir.model.fields,field_description:pp_employee.field_pp_employee__activity_state
@@ -92,6 +102,11 @@ msgid "Bank Account Number"
 msgstr "เลขที่บัญชีธนาคาร"
 
 #. module: pp_employee
+#: model:ir.model.fields,field_description:pp_employee.field_pp_employee__blood_type
+msgid "Blood Type"
+msgstr "หมู่โลหิต"
+
+#. module: pp_employee
 #: selection:pp.employee,religion:0
 msgid "Buddhism"
 msgstr "พุทธ"
@@ -114,7 +129,7 @@ msgstr "โค๊ช"
 #. module: pp_employee
 #: model:ir.model.fields,field_description:pp_employee.field_pp_employee__color
 msgid "Color Index"
-msgstr ""
+msgstr "ดัชนีสี"
 
 #. module: pp_employee
 #: model:ir.model.fields,field_description:pp_employee.field_pp_employee__company_id
@@ -139,7 +154,7 @@ msgstr "สร้างโดย"
 #. module: pp_employee
 #: model:ir.model.fields,field_description:pp_employee.field_pp_employee__create_date
 msgid "Created on"
-msgstr ""
+msgstr "สร้างเมื่อ"
 
 #. module: pp_employee
 #: model:ir.model.fields,field_description:pp_employee.field_pp_employee__birthday
@@ -160,7 +175,7 @@ msgstr "แผนก"
 #. module: pp_employee
 #: model:ir.model.fields,field_description:pp_employee.field_pp_employee__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "ชื่อที่ใช้แสดง"
 
 #. module: pp_employee
 #: selection:pp.employee,marital:0
@@ -183,6 +198,16 @@ msgid "Emergency Phone"
 msgstr "เบอร์ติดต่อฉุกเฉิน"
 
 #. module: pp_employee
+#: model:ir.model.fields,field_description:pp_employee.field_pp_employee__emergency_contact_address
+msgid "Emergency's contact address"
+msgstr "ที่อยู่ผู้ติดต่อฉุกเฉิน"
+
+#. module: pp_employee
+#: model:ir.model.fields,field_description:pp_employee.field_pp_employee__emergency_contact_phone
+msgid "Emergency's contact phone"
+msgstr "เบอร์โทรศัพท์ผู้ติดต่อฉุกเฉิน"
+
+#. module: pp_employee
 #: model:ir.model.fields,field_description:pp_employee.field_pp_employee__employee_badge_id
 msgid "Employee Badge ID"
 msgstr "รหัสบัตรพนักงาน"
@@ -198,14 +223,39 @@ msgid "Employee bank salary account"
 msgstr "บัญชีฝากเงินเดือนพนักงาน"
 
 #. module: pp_employee
+#: model:ir.model.fields,field_description:pp_employee.field_pp_employee__father_name
+msgid "Employee's father's name"
+msgstr "ชื่อ-สกุล บิดา"
+
+#. module: pp_employee
+#: model:ir.model.fields,field_description:pp_employee.field_pp_employee__father_occupation
+msgid "Employee's father's work"
+msgstr "อาชีพบิดา"
+
+#. module: pp_employee
+#: model:ir.model.fields,field_description:pp_employee.field_pp_employee__mother_name
+msgid "Employee's mother's name"
+msgstr "ชื่อ-สกุล มารดา"
+
+#. module: pp_employee
+#: model:ir.model.fields,field_description:pp_employee.field_pp_employee__mother_occupation
+msgid "Employee's mother's work"
+msgstr "อาชีพมารดา"
+
+#. module: pp_employee
 #: model:ir.ui.menu,name:pp_employee.menu_employees
 msgid "Employees"
-msgstr "พนักงานทั้งหมด"
+msgstr "บุคลากร"
 
 #. module: pp_employee
 #: model:ir.model.fields,help:pp_employee.field_pp_employee__address_home_id
 msgid "Enter here the private address of the employee, not the one linked to your company."
 msgstr ""
+
+#. module: pp_employee
+#: model:ir.model.fields,field_description:pp_employee.field_pp_employee__ethnicity_ids
+msgid "Ethnicity"
+msgstr "เชื้อชาติ"
 
 #. module: pp_employee
 #: selection:pp.employee,gender:0
@@ -230,17 +280,17 @@ msgstr "ชื่อ"
 #. module: pp_employee
 #: model:ir.model.fields,field_description:pp_employee.field_pp_employee__message_follower_ids
 msgid "Followers"
-msgstr ""
+msgstr "ผู้ติดตาม"
 
 #. module: pp_employee
 #: model:ir.model.fields,field_description:pp_employee.field_pp_employee__message_channel_ids
 msgid "Followers (Channels)"
-msgstr ""
+msgstr "ผู้ติดตาม (ช่องทาง)"
 
 #. module: pp_employee
 #: model:ir.model.fields,field_description:pp_employee.field_pp_employee__message_partner_ids
 msgid "Followers (Partners)"
-msgstr ""
+msgstr "ผู้ติดตาม (คู่ค้า)"
 
 #. module: pp_employee
 #: model:ir.model.fields,field_description:pp_employee.field_pp_employee__gender
@@ -258,9 +308,29 @@ msgid "Government Savings Bank"
 msgstr "ธนาคารออมสิน"
 
 #. module: pp_employee
+#: model:ir.model.fields,field_description:pp_employee.field_pp_employee__height
+msgid "Height (cm.)"
+msgstr "ส่วนสูง (ซม.)"
+
+#. module: pp_employee
+#: model:ir.model.fields,field_description:pp_employee.field_pp_employee__province_ids
+msgid "Hometown"
+msgstr "ภูมิลำเนา"
+
+#. module: pp_employee
 #: model:ir.model.fields,field_description:pp_employee.field_pp_employee__id
 msgid "ID"
-msgstr "ID"
+msgstr "รหัส"
+
+#. module: pp_employee
+#: model:ir.model.fields,field_description:pp_employee.field_pp_employee__identification_expiry
+msgid "ID's Expiry Date"
+msgstr "บัตรหมดอายุ"
+
+#. module: pp_employee
+#: model:ir.model.fields,field_description:pp_employee.field_pp_employee__identification_issued
+msgid "ID's Issued Date"
+msgstr "วันที่ออกบัตร"
 
 #. module: pp_employee
 #: model:ir.model.fields,field_description:pp_employee.field_pp_employee__identification_id
@@ -270,12 +340,12 @@ msgstr "บัตรประชาชน"
 #. module: pp_employee
 #: model:ir.model.fields,help:pp_employee.field_pp_employee__message_unread
 msgid "If checked new messages require your attention."
-msgstr ""
+msgstr "ถ้าเลือก ข้อความใหม่จะต้องการความสนใจจากคุณ"
 
 #. module: pp_employee
 #: model:ir.model.fields,help:pp_employee.field_pp_employee__message_needaction
 msgid "If checked, new messages require your attention."
-msgstr ""
+msgstr "ถ้าเลือก ข้อความใหม่จะต้องการความสนใจจากคุณ"
 
 #. module: pp_employee
 #: model:ir.model.fields,help:pp_employee.field_pp_employee__message_has_error
@@ -290,7 +360,7 @@ msgstr ""
 #. module: pp_employee
 #: model:ir.model.fields,field_description:pp_employee.field_pp_employee__message_is_follower
 msgid "Is Follower"
-msgstr ""
+msgstr "เป็นผู้ติดตาม"
 
 #. module: pp_employee
 #: selection:pp.employee,religion:0
@@ -310,7 +380,7 @@ msgstr "ตำแหน่ง"
 #. module: pp_employee
 #: model_terms:ir.ui.view,arch_db:pp_employee.pp_employee_form_view
 msgid "Jumbo Employee Form"
-msgstr "ฟอร์มพนักงานบริษัทเอเชียจัมโบ้อินดัสตรีส์"
+msgstr "ฟอร์มพนักงาน"
 
 #. module: pp_employee
 #: model_terms:ir.ui.view,arch_db:pp_employee.pp_employee_list_view
@@ -322,7 +392,7 @@ msgstr "รายชื่อพนักงาน"
 #: model:ir.ui.menu,name:pp_employee.menu_jumbo_employee
 #: model:ir.ui.menu,name:pp_employee.menu_root
 msgid "Jumbo Employees"
-msgstr "พนักงานบริษัทเอเชียจัมโบ้อินดัสตรีส์"
+msgstr "พนักงานเอเชียจัมโบ้"
 
 #. module: pp_employee
 #: selection:pp.employee,financial_institution:0
@@ -347,17 +417,17 @@ msgstr "ธนาคารกรุงไทย"
 #. module: pp_employee
 #: model:ir.model.fields,field_description:pp_employee.field_pp_employee____last_update
 msgid "Last Modified on"
-msgstr ""
+msgstr "แก้ไขครั้งสุดท้ายเมื่อ"
 
 #. module: pp_employee
 #: model:ir.model.fields,field_description:pp_employee.field_pp_employee__write_uid
 msgid "Last Updated by"
-msgstr ""
+msgstr "อัพเดทครั้งสุดท้ายโดย"
 
 #. module: pp_employee
 #: model:ir.model.fields,field_description:pp_employee.field_pp_employee__write_date
 msgid "Last Updated on"
-msgstr ""
+msgstr "อัพเดทครั้งสุดท้ายเมื่อ"
 
 #. module: pp_employee
 #: model:ir.model.fields,field_description:pp_employee.field_pp_employee__lastname
@@ -367,7 +437,7 @@ msgstr "สกุล"
 #. module: pp_employee
 #: selection:pp.employee,marital:0
 msgid "Legal Cohabitant"
-msgstr ""
+msgstr "สถานภาพสมรส"
 
 #. module: pp_employee
 #: model:ir.model.fields,field_description:pp_employee.field_pp_employee__message_main_attachment_id
@@ -387,7 +457,7 @@ msgstr "ผู้จัดการ"
 #. module: pp_employee
 #: model:ir.model.fields,field_description:pp_employee.field_pp_employee__marital
 msgid "Marital Status"
-msgstr "สถานภาพ"
+msgstr "สถานภาพสมรส"
 
 #. module: pp_employee
 #: selection:pp.employee,marital:0
@@ -417,7 +487,12 @@ msgstr "เกิดข้อผิดพลาดในการส่งข้
 #. module: pp_employee
 #: model:ir.model.fields,field_description:pp_employee.field_pp_employee__message_ids
 msgid "Messages"
-msgstr "ข้อความทั้งหมด"
+msgstr "ข้อความ"
+
+#. module: pp_employee
+#: model:ir.model.fields,field_description:pp_employee.field_pp_employee__military_status
+msgid "Military Status"
+msgstr "ราชการทหาร"
 
 #. module: pp_employee
 #: selection:pp.employee,salutation:0
@@ -435,9 +510,14 @@ msgid "Ms."
 msgstr "นางสาว"
 
 #. module: pp_employee
+#: selection:pp.employee,blood_type:0
+msgid "NA"
+msgstr "ไม่ระบุ"
+
+#. module: pp_employee
 #: model:ir.model.fields,field_description:pp_employee.field_pp_employee__name
 msgid "Name"
-msgstr "ชื่อ-สกุล"
+msgstr "ชื่อ"
 
 #. module: pp_employee
 #: model:ir.model.fields,field_description:pp_employee.field_pp_employee__english_name
@@ -467,27 +547,52 @@ msgstr ""
 #. module: pp_employee
 #: selection:pp.employee,religion:0
 msgid "No Religion"
-msgstr "ไม่มีศาสนา"
+msgstr "ไม่ระบุศาสนา"
+
+#. module: pp_employee
+#: selection:pp.employee,military_status:0
+msgid "Not Applicable"
+msgstr "ไม่ระบุ"
+
+#. module: pp_employee
+#: model:pp.employee,father_name:pp_employee.pp_employee_demo_1
+#: model:pp.employee,father_name:pp_employee.pp_employee_demo_2
+#: model:pp.employee,father_occupation:pp_employee.pp_employee_demo_1
+#: model:pp.employee,father_occupation:pp_employee.pp_employee_demo_2
+#: model:pp.employee,mother_name:pp_employee.pp_employee_demo_1
+#: model:pp.employee,mother_name:pp_employee.pp_employee_demo_2
+#: model:pp.employee,mother_occupation:pp_employee.pp_employee_demo_1
+#: model:pp.employee,mother_occupation:pp_employee.pp_employee_demo_2
+#: model:pp.employee,spouse_job_title:pp_employee.pp_employee_demo_1
+#: model:pp.employee,spouse_job_title:pp_employee.pp_employee_demo_2
+#: model:pp.employee,spouse_name:pp_employee.pp_employee_demo_1
+#: model:pp.employee,spouse_name:pp_employee.pp_employee_demo_2
+#: model:pp.employee,spouse_occupation:pp_employee.pp_employee_demo_1
+#: model:pp.employee,spouse_occupation:pp_employee.pp_employee_demo_2
+#: model:pp.employee,spouse_work_address:pp_employee.pp_employee_demo_1
+#: model:pp.employee,spouse_work_address:pp_employee.pp_employee_demo_2
+msgid "Not Disclosed"
+msgstr "ไม่ระบุ"
 
 #. module: pp_employee
 #: model:ir.model.fields,field_description:pp_employee.field_pp_employee__notes
 msgid "Notes"
-msgstr ""
+msgstr "โน้ต"
 
 #. module: pp_employee
 #: model:ir.model.fields,field_description:pp_employee.field_pp_employee__message_needaction_counter
 msgid "Number of Actions"
-msgstr ""
+msgstr "จำนวนกิจกรรม"
 
 #. module: pp_employee
 #: model:ir.model.fields,field_description:pp_employee.field_pp_employee__children
 msgid "Number of Children"
-msgstr ""
+msgstr "จำนวนบุตรธิดา"
 
 #. module: pp_employee
 #: model:ir.model.fields,field_description:pp_employee.field_pp_employee__message_has_error_counter
 msgid "Number of error"
-msgstr "จำนวนบุตร-ธิดา"
+msgstr "ข้อผิดผลาดทั้งหมด"
 
 #. module: pp_employee
 #: model:ir.model.fields,help:pp_employee.field_pp_employee__message_needaction_counter
@@ -523,7 +628,12 @@ msgstr "เจ้าหน้าที่จัดการข้อมูลพ
 #. module: pp_employee
 #: model:ir.model,name:pp_employee.model_pp_employee
 msgid "PP Employee Model for Jumbo Industry"
-msgstr ""
+msgstr "โมเดลสำหรับพนักงานโดยพีพีสมาร์ทโปรดักส์ เพื่อบริษัทเอเชียจัมโบ้อินดัสตรีส์"
+
+#. module: pp_employee
+#: selection:pp.employee,military_status:0
+msgid "Passed"
+msgstr "ผ่านเกณฑ์ทหารแล้ว"
 
 #. module: pp_employee
 #: model:ir.model.fields,field_description:pp_employee.field_pp_employee__passport_id
@@ -546,6 +656,11 @@ msgid "Planned"
 msgstr ""
 
 #. module: pp_employee
+#: selection:pp.employee,military_status:0
+msgid "Postponed"
+msgstr "อยู่ระหว่างผ่อนผัน"
+
+#. module: pp_employee
 #: model:ir.model.fields,field_description:pp_employee.field_pp_employee__address_home_id
 msgid "Private Address"
 msgstr "ที่อยู่ส่วนบุคคล"
@@ -561,24 +676,29 @@ msgid "Religion"
 msgstr "ศาสนา"
 
 #. module: pp_employee
+#: selection:pp.employee,military_status:0
+msgid "Reserved"
+msgstr "กองกำลังสำรอง"
+
+#. module: pp_employee
 #: model:ir.model.fields,field_description:pp_employee.field_pp_employee__resource_id
 msgid "Resource"
-msgstr ""
+msgstr "ทรัพยากร"
 
 #. module: pp_employee
 #: model:ir.model.fields,field_description:pp_employee.field_pp_employee__activity_user_id
 msgid "Responsible User"
-msgstr ""
+msgstr "ผู้ใช้ที่รับผิดชอบ"
 
 #. module: pp_employee
 #: model:ir.model.fields,field_description:pp_employee.field_pp_employee__sinid
 msgid "SIN No"
-msgstr ""
+msgstr "หมายเลข SIN"
 
 #. module: pp_employee
 #: model:ir.model.fields,field_description:pp_employee.field_pp_employee__ssnid
 msgid "SSN No"
-msgstr ""
+msgstr "หมายเลข SSN"
 
 #. module: pp_employee
 #: model_terms:ir.ui.view,arch_db:pp_employee.pp_employee_form_view
@@ -613,12 +733,17 @@ msgstr "รูปถ่ายพนักงานขนาดเล็ก จ�
 #. module: pp_employee
 #: model:ir.model.fields,help:pp_employee.field_pp_employee__sinid
 msgid "Social Insurance Number"
-msgstr ""
+msgstr "หมายเลขบัตรประกันสังคม"
 
 #. module: pp_employee
 #: model:ir.model.fields,help:pp_employee.field_pp_employee__ssnid
 msgid "Social Security Number"
-msgstr ""
+msgstr "หมายเลขประกันสังคม"
+
+#. module: pp_employee
+#: model_terms:ir.ui.view,arch_db:pp_employee.pp_employee_form_view
+msgid "Spouse"
+msgstr "คู่สมรส"
 
 #. module: pp_employee
 #: model:ir.model.fields,field_description:pp_employee.field_pp_employee__spouse_birthdate
@@ -629,6 +754,66 @@ msgstr "วันเกิดคู่สมรส"
 #: model:ir.model.fields,field_description:pp_employee.field_pp_employee__spouse_complete_name
 msgid "Spouse Complete Name"
 msgstr "ชื่อ-สกุลคู่สมรส"
+
+#. module: pp_employee
+#: model:ir.model.fields,field_description:pp_employee.field_pp_employee__spouse_current_out_of_job_date
+msgid "Spouse Out-of-Job Date"
+msgstr "คู่สมรสออกจากงานเมื่อวันที่"
+
+#. module: pp_employee
+#: model:ir.model.fields,field_description:pp_employee.field_pp_employee__spouse_current_out_of_job_reason
+msgid "Spouse Out-of-Job Reason"
+msgstr "สาเหตุที่คู่สมรสออกจากงาน"
+
+#. module: pp_employee
+#: model:ir.model.fields,field_description:pp_employee.field_pp_employee__spouse_tax_district_name
+msgid "Spouse Tax District"
+msgstr "คู่สมรสยื่นภาษีที่"
+
+#. module: pp_employee
+#: model:ir.model.fields,field_description:pp_employee.field_pp_employee__spouse_identification_id
+msgid "Spouse's Identification Number"
+msgstr "หมายเลขบัตรคู่สมรส"
+
+#. module: pp_employee
+#: model:ir.model.fields,field_description:pp_employee.field_pp_employee__spouse_identification_type
+msgid "Spouse's Identification Type"
+msgstr "ประเภทบัตรประจำตัวคู่สมรส"
+
+#. module: pp_employee
+#: model:ir.model.fields,field_description:pp_employee.field_pp_employee__spouse_job_title
+msgid "Spouse's Job Title"
+msgstr "ตำแหน่งงานคู่สมรส"
+
+#. module: pp_employee
+#: model:ir.model.fields,field_description:pp_employee.field_pp_employee__spouse_name
+msgid "Spouse's Name"
+msgstr "ชื่อ-สกุล คู่สมรส"
+
+#. module: pp_employee
+#: model:ir.model.fields,field_description:pp_employee.field_pp_employee__spouse_occupation
+msgid "Spouse's Occupation"
+msgstr "อาชีพคู่สมรส"
+
+#. module: pp_employee
+#: model:ir.model.fields,field_description:pp_employee.field_pp_employee__spouse_phone
+msgid "Spouse's Phone"
+msgstr "เบอร์โทรศัพท์"
+
+#. module: pp_employee
+#: model:ir.model.fields,field_description:pp_employee.field_pp_employee__spouse_taxpayer_id
+msgid "Spouse's Taxpayer ID"
+msgstr "หมายเลขประจำตัวผู้เสียภาษีคู่สมรส"
+
+#. module: pp_employee
+#: model:ir.model.fields,field_description:pp_employee.field_pp_employee__spouse_work_address
+msgid "Spouse's Work Address"
+msgstr "ที่ทำงาน"
+
+#. module: pp_employee
+#: model:ir.model.fields,field_description:pp_employee.field_pp_employee__spouse_current_work_status
+msgid "Spouse's Work Status"
+msgstr "สถานะการทำงาน"
 
 #. module: pp_employee
 #: model:ir.model.fields,help:pp_employee.field_pp_employee__activity_state
@@ -646,7 +831,12 @@ msgstr "ผู้ใต้บังคับบัญชา"
 #. module: pp_employee
 #: model:ir.model.fields,field_description:pp_employee.field_pp_employee__category_ids
 msgid "Tags"
-msgstr ""
+msgstr "ประเภทพนักงาน"
+
+#. module: pp_employee
+#: model:ir.model.fields,field_description:pp_employee.field_pp_employee__spouse_tax_province_ids
+msgid "Tax Form Sent to Province"
+msgstr "แบบภาษียื่นที่"
 
 #. module: pp_employee
 #: model:ir.model.fields,field_description:pp_employee.field_pp_employee__taxpayer_id
@@ -661,7 +851,7 @@ msgstr ""
 #. module: pp_employee
 #: model:ir.model.fields,help:pp_employee.field_pp_employee__image
 msgid "This field holds the image used as photo for the employee, limited to 1024x1024px."
-msgstr ""
+msgstr "ภาพที่นำมาใช้เป็นภาพสำหรับบุคลากร จำกัดขนาด 1024x1024 พิกเซล"
 
 #. module: pp_employee
 #: model:ir.model.fields,help:pp_employee.field_pp_employee__tz
@@ -671,7 +861,7 @@ msgstr ""
 #. module: pp_employee
 #: model:ir.model.fields,field_description:pp_employee.field_pp_employee__tz
 msgid "Timezone"
-msgstr "ไทม์โซน"
+msgstr "เขตเวลา"
 
 #. module: pp_employee
 #: selection:pp.employee,activity_state:0
@@ -686,12 +876,17 @@ msgstr "ข้อความที่ยังไม่ได้อ่าน"
 #. module: pp_employee
 #: model:ir.model.fields,field_description:pp_employee.field_pp_employee__message_unread_counter
 msgid "Unread Messages Counter"
-msgstr ""
+msgstr "จำนวนข้อความที่ยังไม่ได้อ่าน"
 
 #. module: pp_employee
 #: model:ir.model.fields,field_description:pp_employee.field_pp_employee__user_id
 msgid "User"
-msgstr ""
+msgstr "ผู้ใช้"
+
+#. module: pp_employee
+#: selection:pp.employee,military_status:0
+msgid "Veteran"
+msgstr "ทหารผ่านศึก"
 
 #. module: pp_employee
 #: model:ir.model.fields,field_description:pp_employee.field_pp_employee__visa_expire
@@ -702,6 +897,11 @@ msgstr "วีซ่าหมดอายุ"
 #: model:ir.model.fields,field_description:pp_employee.field_pp_employee__visa_no
 msgid "Visa No"
 msgstr "วีซ่าเลขที่"
+
+#. module: pp_employee
+#: model:ir.model.fields,field_description:pp_employee.field_pp_employee__weight
+msgid "Weight (kg.)"
+msgstr "น้ำหนัก (กก.)"
 
 #. module: pp_employee
 #: selection:pp.employee,marital:0
@@ -741,7 +941,7 @@ msgstr "โทรศัทท์ที่ทำงาน"
 #. module: pp_employee
 #: model:ir.model.fields,field_description:pp_employee.field_pp_employee__resource_calendar_id
 msgid "Working Hours"
-msgstr "เวลาเข้างาน"
+msgstr "ชั่วโมงทำงาน"
 
 #. module: pp_employee
 #: model:ir.model.fields,field_description:pp_employee.field_pp_employee__age

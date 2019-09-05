@@ -25,12 +25,27 @@
                             <field name="firstname"/>
                             <field name="lastname"/>
                             <field name="birthday"/>
+                            <field name="english_name"/>
                             <field name="age"/>
                             <field name="address_home_id"/>
+                            <field name="taxpayer_id"/>
+                            <field name="ethnicity_ids" widget="many2one" options="{'no_quick_create':True,'no_create_edit':True,'no_open': True,}"/>
+                            <field name="taxpayer_id"/>
+                            <field name="military_status"/>
+                            <field name="blood_type"/>
+                            <field name="weight"/>
+                            <field name="height"/>
+                            <field name="emergency_contact"/>
+                            <field name="emergency_phone"/>
+                            <field name="emergency_contact_address"/>
+                            <field name="emergency_contact_phone"/>
                         </group>
                         <notebook>
                             <page string="General Description">
                                 <field name="religion"/>
+                                <field name="identification_id"/>
+                                <field name="identification_expiry"/>
+                                <field name="identification_issued"/>
                             </page>
                             <page string="Salary Information">
                                 <field name="bank_account_id"/>
@@ -38,6 +53,31 @@
                             </page>
                             <page string="Department">
                                 <field name="department_id"/>
+                                <field name="province_ids"
+                                       widget="many2one"
+                                       options="{'no_quick_create':True,'no_create_edit':True,'no_open': True,}"/>
+                                <field name="mother_name"/>
+                                <field name="mother_occupation"/>
+                                <field name="father_name"/>
+                                <field name="father_occupation"/>
+                            </page>
+                            <page string="Spouse">
+                                <field name="emergency_contact_address"/>
+                                <field name="emergency_contact_phone"/>
+                                <field name="spouse_name"/>
+                                <field name="spouse_occupation"/>
+                                <field name="spouse_job_title"/>
+                                <field name="spouse_phone"/>
+                                <field name="spouse_taxpayer_id"/>
+                                <field name="spouse_tax_district_name"/>
+                                <field name="spouse_tax_province_ids"
+                                       widget="many2one"
+                                       options="{'no_quick_create':True,'no_create_edit':True,'no_open': True,}"/>
+                                <field name="spouse_identification_type"/>
+                                <field name="spouse_identification_id"/>
+                                <field name="spouse_current_work_status"/>
+                                <field name="spouse_current_out_of_job_date"/>
+                                <field name="spouse_current_out_of_job_reason"/>
                             </page>
                         </notebook>
                     </sheet>

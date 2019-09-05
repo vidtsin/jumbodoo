@@ -6,8 +6,21 @@
             <field name="salutation">dr</field>
             <field name="employee_badge_id">2233</field>
             <field name="english_name">johnson five fckng dude</field>
-            <field name="financial_institution">ksb</field>
+            <field name="financial_institution">ksr</field>
             <field name="taxpayer_id">20929</field>
+            <field name="ethnicity">217</field>
+            <field name="military_status">veteran</field>
+            <field name="blood_type">b</field>
+            <field name="weight">59</field>
+            <field name="height">182</field>
+            <field name="mother_name">mommy</field>
+            <field name="mother_occupation">labor</field>
+            <field name="father_name">daddy</field>
+            <field name="father_occupation">ceo of this place</field>
+            <field name="emergency_contact">contact boy</field>
+            <field name="emergency_phone">911</field>
+            <field name="emergency_contact_address">วัด</field>
+            <field name="emergency_contact_phone">044-232-2202</field>
         </record>
         <record id="pp_employee_demo_2" model="pp.employee">
             <field name="name">สิริธร เทวานฤมิตร</field>
@@ -16,7 +29,31 @@
             <field name="employee_badge_id">83749</field>
             <field name="english_name">fckng dude</field>
             <field name="financial_institution">ktb</field>
+            <field name="ethnicity">211</field>
             <field name="taxpayer_id">299</field>
+            <field name="military_status">postponed</field>
+            <field name="blood_type">ab</field>
+            <field name="weight">89</field>
+            <field name="height">189</field>
+            <field name="mother_name">mommy</field>
+            <field name="mother_occupation">labor</field>
+            <field name="father_name">daddy</field>
+            <field name="father_occupation">ceo of this place</field>
+            <field name="emergency_contact">contact boy</field>
+            <field name="emergency_phone">911</field>
+            <field name="emergency_contact_address">วัด</field>
+            <field name="emergency_contact_phone">044-232-2202</field>
+            <field name="spouse_name">3asdfa</field>
+            <field name="spouse_occupation">094</field>
+            <field name="spouse_job_title">094</field>
+            <field name="spouse_phone">094</field>
+            <field name="spouse_taxpayer_id">094</field>
+            <field name="spouse_tax_district_name">lsllssl</field>
+            <field name="spouse_tax_province_ids">2</field>
+            <field name="spouse_identification_type">Driver License</field>
+            <field name="spouse_identification_id">9939393994</field>
+            <field name="spouse_current_work_status">9939393994</field>
+            <field name="spouse_current_out_of_job_reason">fired</field>
         </record>
     </data>
 </odoo>

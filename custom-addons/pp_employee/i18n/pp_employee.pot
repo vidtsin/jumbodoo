@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-05 12:56+0000\n"
-"PO-Revision-Date: 2019-09-05 12:56+0000\n"
+"POT-Creation-Date: 2019-09-05 16:50+0000\n"
+"PO-Revision-Date: 2019-09-05 16:50+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -16,44 +16,49 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: pp_employee
-#: code:addons/pp_employee/models/pp_employee.py:71
+#: code:addons/pp_employee/models/pp_employee.py:132
 #, python-format
 msgid "%s day"
 msgstr ""
 
 #. module: pp_employee
-#: code:addons/pp_employee/models/pp_employee.py:69
+#: code:addons/pp_employee/models/pp_employee.py:130
 #, python-format
 msgid "%s days"
 msgstr ""
 
 #. module: pp_employee
-#: code:addons/pp_employee/models/pp_employee.py:66
+#: code:addons/pp_employee/models/pp_employee.py:127
 #, python-format
 msgid "%s month"
 msgstr ""
 
 #. module: pp_employee
-#: code:addons/pp_employee/models/pp_employee.py:64
+#: code:addons/pp_employee/models/pp_employee.py:125
 #, python-format
 msgid "%s months"
 msgstr ""
 
 #. module: pp_employee
-#: code:addons/pp_employee/models/pp_employee.py:61
+#: code:addons/pp_employee/models/pp_employee.py:122
 #, python-format
 msgid "%s year"
 msgstr ""
 
 #. module: pp_employee
-#: code:addons/pp_employee/models/pp_employee.py:59
+#: code:addons/pp_employee/models/pp_employee.py:120
 #, python-format
 msgid "%s years"
 msgstr ""
 
 #. module: pp_employee
+#: model:pp.employee,age:pp_employee.pp_employee_demo_1
+msgid "0 year 0 month -10 day"
+msgstr ""
+
+#. module: pp_employee
 #: model:pp.employee,age:pp_employee.pp_employee_demo_2
-msgid "15 years 11 months 14 days"
+msgid "0 year 0 month 3 days"
 msgstr ""
 
 #. module: pp_employee
@@ -67,8 +72,8 @@ msgid "2233"
 msgstr ""
 
 #. module: pp_employee
-#: model:pp.employee,age:pp_employee.pp_employee_demo_1
-msgid "25 years 10 months 4 days"
+#: model:pp.employee,emergency_contact_phone:pp_employee.pp_employee_demo_1
+msgid "24234234"
 msgstr ""
 
 #. module: pp_employee
@@ -77,8 +82,18 @@ msgid "299"
 msgstr ""
 
 #. module: pp_employee
+#: model:pp.employee,emergency_contact_address:pp_employee.pp_employee_demo_1
+msgid "555/133 m. the nice"
+msgstr ""
+
+#. module: pp_employee
 #: model:pp.employee,employee_badge_id:pp_employee.pp_employee_demo_2
 msgid "83749"
+msgstr ""
+
+#. module: pp_employee
+#: selection:pp.employee,blood_type:0
+msgid "AB"
 msgstr ""
 
 #. module: pp_employee
@@ -89,6 +104,11 @@ msgstr ""
 #. module: pp_employee
 #: model:ir.model.fields,field_description:pp_employee.field_pp_employee__active
 msgid "Active"
+msgstr ""
+
+#. module: pp_employee
+#: selection:pp.employee,military_status:0
+msgid "Active Duty"
 msgstr ""
 
 #. module: pp_employee
@@ -119,6 +139,11 @@ msgstr ""
 #. module: pp_employee
 #: model:ir.model.fields,field_description:pp_employee.field_pp_employee__bank_account_id
 msgid "Bank Account Number"
+msgstr ""
+
+#. module: pp_employee
+#: model:ir.model.fields,field_description:pp_employee.field_pp_employee__blood_type
+msgid "Blood Type"
 msgstr ""
 
 #. module: pp_employee
@@ -213,6 +238,16 @@ msgid "Emergency Phone"
 msgstr ""
 
 #. module: pp_employee
+#: model:ir.model.fields,field_description:pp_employee.field_pp_employee__emergency_contact_address
+msgid "Emergency's contact address"
+msgstr ""
+
+#. module: pp_employee
+#: model:ir.model.fields,field_description:pp_employee.field_pp_employee__emergency_contact_phone
+msgid "Emergency's contact phone"
+msgstr ""
+
+#. module: pp_employee
 #: model:ir.model.fields,field_description:pp_employee.field_pp_employee__employee_badge_id
 msgid "Employee Badge ID"
 msgstr ""
@@ -228,6 +263,26 @@ msgid "Employee bank salary account"
 msgstr ""
 
 #. module: pp_employee
+#: model:ir.model.fields,field_description:pp_employee.field_pp_employee__father_name
+msgid "Employee's father's name"
+msgstr ""
+
+#. module: pp_employee
+#: model:ir.model.fields,field_description:pp_employee.field_pp_employee__father_occupation
+msgid "Employee's father's work"
+msgstr ""
+
+#. module: pp_employee
+#: model:ir.model.fields,field_description:pp_employee.field_pp_employee__mother_name
+msgid "Employee's mother's name"
+msgstr ""
+
+#. module: pp_employee
+#: model:ir.model.fields,field_description:pp_employee.field_pp_employee__mother_occupation
+msgid "Employee's mother's work"
+msgstr ""
+
+#. module: pp_employee
 #: model:ir.ui.menu,name:pp_employee.menu_employees
 msgid "Employees"
 msgstr ""
@@ -235,6 +290,11 @@ msgstr ""
 #. module: pp_employee
 #: model:ir.model.fields,help:pp_employee.field_pp_employee__address_home_id
 msgid "Enter here the private address of the employee, not the one linked to your company."
+msgstr ""
+
+#. module: pp_employee
+#: model:ir.model.fields,field_description:pp_employee.field_pp_employee__ethnicity_ids
+msgid "Ethnicity"
 msgstr ""
 
 #. module: pp_employee
@@ -288,8 +348,28 @@ msgid "Government Savings Bank"
 msgstr ""
 
 #. module: pp_employee
+#: model:ir.model.fields,field_description:pp_employee.field_pp_employee__height
+msgid "Height (cm.)"
+msgstr ""
+
+#. module: pp_employee
+#: model:ir.model.fields,field_description:pp_employee.field_pp_employee__province_ids
+msgid "Hometown"
+msgstr ""
+
+#. module: pp_employee
 #: model:ir.model.fields,field_description:pp_employee.field_pp_employee__id
 msgid "ID"
+msgstr ""
+
+#. module: pp_employee
+#: model:ir.model.fields,field_description:pp_employee.field_pp_employee__identification_expiry
+msgid "ID's Expiry Date"
+msgstr ""
+
+#. module: pp_employee
+#: model:ir.model.fields,field_description:pp_employee.field_pp_employee__identification_issued
+msgid "ID's Issued Date"
 msgstr ""
 
 #. module: pp_employee
@@ -450,6 +530,11 @@ msgid "Messages"
 msgstr ""
 
 #. module: pp_employee
+#: model:ir.model.fields,field_description:pp_employee.field_pp_employee__military_status
+msgid "Military Status"
+msgstr ""
+
+#. module: pp_employee
 #: selection:pp.employee,salutation:0
 msgid "Mr."
 msgstr ""
@@ -462,6 +547,11 @@ msgstr ""
 #. module: pp_employee
 #: selection:pp.employee,salutation:0
 msgid "Ms."
+msgstr ""
+
+#. module: pp_employee
+#: selection:pp.employee,blood_type:0
+msgid "NA"
 msgstr ""
 
 #. module: pp_employee
@@ -497,6 +587,31 @@ msgstr ""
 #. module: pp_employee
 #: selection:pp.employee,religion:0
 msgid "No Religion"
+msgstr ""
+
+#. module: pp_employee
+#: selection:pp.employee,military_status:0
+msgid "Not Applicable"
+msgstr ""
+
+#. module: pp_employee
+#: model:pp.employee,father_name:pp_employee.pp_employee_demo_1
+#: model:pp.employee,father_name:pp_employee.pp_employee_demo_2
+#: model:pp.employee,father_occupation:pp_employee.pp_employee_demo_1
+#: model:pp.employee,father_occupation:pp_employee.pp_employee_demo_2
+#: model:pp.employee,mother_name:pp_employee.pp_employee_demo_1
+#: model:pp.employee,mother_name:pp_employee.pp_employee_demo_2
+#: model:pp.employee,mother_occupation:pp_employee.pp_employee_demo_1
+#: model:pp.employee,mother_occupation:pp_employee.pp_employee_demo_2
+#: model:pp.employee,spouse_job_title:pp_employee.pp_employee_demo_1
+#: model:pp.employee,spouse_job_title:pp_employee.pp_employee_demo_2
+#: model:pp.employee,spouse_name:pp_employee.pp_employee_demo_1
+#: model:pp.employee,spouse_name:pp_employee.pp_employee_demo_2
+#: model:pp.employee,spouse_occupation:pp_employee.pp_employee_demo_1
+#: model:pp.employee,spouse_occupation:pp_employee.pp_employee_demo_2
+#: model:pp.employee,spouse_work_address:pp_employee.pp_employee_demo_1
+#: model:pp.employee,spouse_work_address:pp_employee.pp_employee_demo_2
+msgid "Not Disclosed"
 msgstr ""
 
 #. module: pp_employee
@@ -556,6 +671,11 @@ msgid "PP Employee Model for Jumbo Industry"
 msgstr ""
 
 #. module: pp_employee
+#: selection:pp.employee,military_status:0
+msgid "Passed"
+msgstr ""
+
+#. module: pp_employee
 #: model:ir.model.fields,field_description:pp_employee.field_pp_employee__passport_id
 msgid "Passport No"
 msgstr ""
@@ -576,6 +696,11 @@ msgid "Planned"
 msgstr ""
 
 #. module: pp_employee
+#: selection:pp.employee,military_status:0
+msgid "Postponed"
+msgstr ""
+
+#. module: pp_employee
 #: model:ir.model.fields,field_description:pp_employee.field_pp_employee__address_home_id
 msgid "Private Address"
 msgstr ""
@@ -588,6 +713,11 @@ msgstr ""
 #. module: pp_employee
 #: model:ir.model.fields,field_description:pp_employee.field_pp_employee__religion
 msgid "Religion"
+msgstr ""
+
+#. module: pp_employee
+#: selection:pp.employee,military_status:0
+msgid "Reserved"
 msgstr ""
 
 #. module: pp_employee
@@ -651,6 +781,11 @@ msgid "Social Security Number"
 msgstr ""
 
 #. module: pp_employee
+#: model_terms:ir.ui.view,arch_db:pp_employee.pp_employee_form_view
+msgid "Spouse"
+msgstr ""
+
+#. module: pp_employee
 #: model:ir.model.fields,field_description:pp_employee.field_pp_employee__spouse_birthdate
 msgid "Spouse Birthdate"
 msgstr ""
@@ -658,6 +793,66 @@ msgstr ""
 #. module: pp_employee
 #: model:ir.model.fields,field_description:pp_employee.field_pp_employee__spouse_complete_name
 msgid "Spouse Complete Name"
+msgstr ""
+
+#. module: pp_employee
+#: model:ir.model.fields,field_description:pp_employee.field_pp_employee__spouse_current_out_of_job_date
+msgid "Spouse Out-of-Job Date"
+msgstr ""
+
+#. module: pp_employee
+#: model:ir.model.fields,field_description:pp_employee.field_pp_employee__spouse_current_out_of_job_reason
+msgid "Spouse Out-of-Job Reason"
+msgstr ""
+
+#. module: pp_employee
+#: model:ir.model.fields,field_description:pp_employee.field_pp_employee__spouse_tax_district_name
+msgid "Spouse Tax District"
+msgstr ""
+
+#. module: pp_employee
+#: model:ir.model.fields,field_description:pp_employee.field_pp_employee__spouse_identification_id
+msgid "Spouse's Identification Number"
+msgstr ""
+
+#. module: pp_employee
+#: model:ir.model.fields,field_description:pp_employee.field_pp_employee__spouse_identification_type
+msgid "Spouse's Identification Type"
+msgstr ""
+
+#. module: pp_employee
+#: model:ir.model.fields,field_description:pp_employee.field_pp_employee__spouse_job_title
+msgid "Spouse's Job Title"
+msgstr ""
+
+#. module: pp_employee
+#: model:ir.model.fields,field_description:pp_employee.field_pp_employee__spouse_name
+msgid "Spouse's Name"
+msgstr ""
+
+#. module: pp_employee
+#: model:ir.model.fields,field_description:pp_employee.field_pp_employee__spouse_occupation
+msgid "Spouse's Occupation"
+msgstr ""
+
+#. module: pp_employee
+#: model:ir.model.fields,field_description:pp_employee.field_pp_employee__spouse_phone
+msgid "Spouse's Phone"
+msgstr ""
+
+#. module: pp_employee
+#: model:ir.model.fields,field_description:pp_employee.field_pp_employee__spouse_taxpayer_id
+msgid "Spouse's Taxpayer ID"
+msgstr ""
+
+#. module: pp_employee
+#: model:ir.model.fields,field_description:pp_employee.field_pp_employee__spouse_work_address
+msgid "Spouse's Work Address"
+msgstr ""
+
+#. module: pp_employee
+#: model:ir.model.fields,field_description:pp_employee.field_pp_employee__spouse_current_work_status
+msgid "Spouse's Work Status"
 msgstr ""
 
 #. module: pp_employee
@@ -676,6 +871,11 @@ msgstr ""
 #. module: pp_employee
 #: model:ir.model.fields,field_description:pp_employee.field_pp_employee__category_ids
 msgid "Tags"
+msgstr ""
+
+#. module: pp_employee
+#: model:ir.model.fields,field_description:pp_employee.field_pp_employee__spouse_tax_province_ids
+msgid "Tax Form Sent to Province"
 msgstr ""
 
 #. module: pp_employee
@@ -724,6 +924,11 @@ msgid "User"
 msgstr ""
 
 #. module: pp_employee
+#: selection:pp.employee,military_status:0
+msgid "Veteran"
+msgstr ""
+
+#. module: pp_employee
 #: model:ir.model.fields,field_description:pp_employee.field_pp_employee__visa_expire
 msgid "Visa Expire Date"
 msgstr ""
@@ -731,6 +936,11 @@ msgstr ""
 #. module: pp_employee
 #: model:ir.model.fields,field_description:pp_employee.field_pp_employee__visa_no
 msgid "Visa No"
+msgstr ""
+
+#. module: pp_employee
+#: model:ir.model.fields,field_description:pp_employee.field_pp_employee__weight
+msgid "Weight (kg.)"
 msgstr ""
 
 #. module: pp_employee
@@ -786,5 +996,20 @@ msgstr ""
 #. module: pp_employee
 #: model:pp.employee,english_name:pp_employee.pp_employee_demo_1
 msgid "johnson five fckng dude"
+msgstr ""
+
+#. module: pp_employee
+#: model:pp.employee,spouse_tax_district_name:pp_employee.pp_employee_demo_1
+#: model:pp.employee,spouse_taxpayer_id:pp_employee.pp_employee_demo_1
+msgid "sdfg"
+msgstr ""
+
+#. module: pp_employee
+#: model:pp.employee,spouse_current_out_of_job_reason:pp_employee.pp_employee_demo_1
+#: model:pp.employee,spouse_current_work_status:pp_employee.pp_employee_demo_1
+#: model:pp.employee,spouse_identification_id:pp_employee.pp_employee_demo_1
+#: model:pp.employee,spouse_identification_type:pp_employee.pp_employee_demo_1
+#: model:pp.employee,spouse_phone:pp_employee.pp_employee_demo_1
+msgid "sdfgsdfg"
 msgstr ""
 
