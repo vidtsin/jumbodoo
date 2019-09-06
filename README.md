@@ -14,3 +14,10 @@ Required Modules
                 'partner_contact_personal_information_page',
                 'l10n_th_partner',
                 'date_range'],
+
+DROP TO PSQL SHELL
+sudo -u postgres psql
+
+CREATE DATABASE yourdbname;
+CREATE USER youruser WITH ENCRYPTED PASSWORD 'yourpass';
+GRANT ALL PRIVILEGES ON DATABASE yourdbname TO youruser;
