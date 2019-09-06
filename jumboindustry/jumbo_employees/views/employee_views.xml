@@ -25,20 +25,46 @@
             <field name="model">hr.employee</field>
             <field name="inherit_id" ref="hr_employee_firstname.view_employee_form"/>
             <field name="arch" type="xml">
-                <xpath expr="//group" position="attributes">
-                    <attribute name="col">3</attribute>
+                <xpath expr="//group" position="replace">
+                    <group col="3">
+                        <group>
+                            <field name="firstname" position="before">
+                                <field name="salutation"/>
+                            </field>
+                            <field name="lastname" position="after">
+                                <field name="english_name"/>
+                            </field>
+                            <field name="english_name" position="after">
+                                <field name="identification_id"/>
+                            </field>
+                        </group>
+                        <group>
+                            <field name="mother_name"/>
+                            <field name="father_name"/>
+                        </group>
+                        <group>
+                            <field name="employee_payrate"/>
+                            <field name="spouse_phone"/>
+                            <field name="age"/>
+                        </group>
+                    </group>
+                    <group col="3">
+                        <group>
+                            <field name="employee_payrate"/>
+                            <field name="spouse_phone"/>
+                            <field name="age"/>
+                        </group>
+                        <group>
+                            <field name="weight"/>
+                            <field name="height"/>
+                        </group>
+                        <group>
+                            <field name="employee_payrate"/>
+                            <field name="spouse_phone"/>
+                            <field name="age"/>
+                        </group>
+                    </group>
                 </xpath>
-                <group col="3">
-                    <field name="firstname" position="before">
-                        <field name="salutation"/>
-                    </field>
-                    <field name="lastname" position="after">
-                        <field name="english_name"/>
-                    </field>
-                    <field name="english_name" position="after">
-                        <field name="identification_id"/>
-                    </field>
-                </group>
             </field>
         </record>
 
