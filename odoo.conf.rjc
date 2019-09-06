@@ -1,5 +1,5 @@
 [options]
-addons_path = /home/odoo/odoo-dev/jumbo,/home/odoo/odoo-dev/odoo/addons,/home/odoo/odoo-dev/custom-addons/openworx
+addons_path = /home/odoo/odoo-dev/rjc,/home/odoo/odoo-dev/odoo/addons,/home/odoo/odoo-dev/custom-addons/openworx
 admin_passwd = 
 csv_internal_sep = ,
 data_dir = /home/odoo/.local/share/Odoo
