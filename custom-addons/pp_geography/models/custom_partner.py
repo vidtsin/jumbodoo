@@ -30,4 +30,4 @@ class ResPartner(models.Model):
             if zip:
                 self.zip = zip.name
 
-            self.country_id = 217 # Thailand Country Code
+            self.country_id = 217  # Thailand Country Code
