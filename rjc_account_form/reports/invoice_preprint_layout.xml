@@ -1,0 +1,106 @@
+<odoo>
+    <template id="rjc_invoice_preprint_layout_report">
+        <div class="header">
+            <div class="invoice_preprint_form">
+                <div class="col-12 text-right">
+                    <br/>
+                    (<strong><span t-field="o.state"/></strong>)
+                </div>
+                <div class="partner_name">
+                    <span t-field="o.partner_id"/>
+                </div>
+                <div class="address_partner">
+                    <span t-field="o.partner_id.street"/>
+                    <span t-field="o.partner_id.street2"/>
+                    <span t-field="o.partner_id.city"/>
+                    <span t-field="o.partner_id.state_id.name"/>
+                    <span t-field="o.partner_id.zip"/>
+                </div>
+                <div class="phone_number">
+                    <span>โทร. <span t-field="o.partner_id.phone"/>
+                        <t t-if="o.partner_id.mobile">
+                            ,<span t-field="o.partner_id.mobile"/>
+                        </t>
+                    </span>
+                </div>
+                <div class="invoice_number">
+                    <span t-field="o.number"/>
+                </div>
+                <div class="origin">
+                    <span t-field="o.origin"/>
+                </div>
+                <div class="date_invoice">
+                    <span t-field="o.date_invoice"/>
+                </div>
+            </div>
+        </div>
+        <div class="article invoice_preprint_form">
+            <table class="table table-sm">
+                <tbody>
+                    <t t-set="column" t-value="1"/>
+                    <t t-foreach="o.invoice_line_ids" t-as="line">
+                        <tr t-att-class="'font-weight-bold o_line_section' if line.display_type == 'line_section' else 'font-italic o_line_note' if line.display_type == 'line_note' else ''">
+                            <t t-if="not line.display_type" name="account_invoice_line_accountable">
+                                <td class="line_column">
+                                    <span t-esc="column"/>
+                                    <t t-set="column" t-value="column+1"/>
+                                </td>
+                                <td class="line_description">
+                                    <span t-field="line.name"/>
+                                </td>
+                                <t t-if="line.price_subtotal_signed >= 0">
+                                    <td class="line_qty text-right">
+                                        <span t-esc="abs(line.quantity)" t-options='{"widget": "integer"}'/>
+                                    </td>
+                                    <td class="line_uom text-right">
+                                        <span t-field="line.uom_id" groups="uom.group_uom"/>
+                                    </td>
+                                    <td class="line_price_unit text-right">
+                                        <span t-esc="'{0:,.2f}'.format(line.price_unit)"/>
+                                    </td>
+                                    <td class="text-right">
+                                        <span t-esc="'{0:,.2f}'.format(abs(line.price_subtotal))"/>
+                                    </td>
+                                </t>
+                                <t t-else="">
+                                    <td/><td/><td/>
+                                    <td class="text-right">
+                                        <span t-esc="'{0:,.2f}'.format(line.price_subtotal*-1)"/>
+                                    </td>
+                                </t>
+                            </t>
+                            <t t-if="line.display_type">
+                                <td/>
+                                <td t-att-colspan="colspan">
+                                    <span t-field="line.name"/>
+                                </td>
+                                <td/><td/><td/><td/>
+                            </t>
+                        </tr>
+                    </t>
+                </tbody>
+            </table>
+        </div>
+        <div class="footer invoice_preprint_form">
+            <div class="col-6 inv_comment">
+                <span t-esc="o.comment"/>
+            </div>
+            <div class="row pt80">
+                <div class="col-8 last-page text-center">
+                    (<span t-esc="o.amount_text(o.amount_total)"/>)
+                </div>
+                <div class="col-4 last-page text-right">
+                    <span t-field="o.amount_total"/>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <template id="rjc_invoice_preprint_pdf">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="rjc_account_form.rjc_invoice_preprint_layout_report"/>
+            </t>
+        </t>
+    </template>
+</odoo>

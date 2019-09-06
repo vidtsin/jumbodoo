@@ -1,0 +1,177 @@
+<odoo>
+    <template id="rjc_invoice_credit_note_layout_report">
+        <div class="header">
+            <div class="row">
+                <div class="col-1">
+                    <span>
+                        <img src='/rjc_account_form/static/src/img/raja.jpg' style="max-height: 75px;"/>
+                    </span>
+                </div>
+                <div class="col-3">
+                    <span>
+                        <strong>บริษัท ราชาไซเคิล จำกัด</strong>
+                        <strong>RAJA CYCLE CO., LTD.</strong>
+                    </span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 text-center">
+                    <span>
+                        <h2>ใบลดหนี้</h2>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="article">
+            <div class="page">
+                <div class="row pb8">
+                    <div class="col-6">
+                        <p>
+                            <strong>ชื่อ Name:</strong>
+                            <span t-field="o.partner_id"/><br/>
+                            <strong>ที่อยู่ Address:</strong>
+                            <span t-field="o.partner_id.street"/>
+                            <span t-field="o.partner_id.street2"/>
+                            <span t-field="o.partner_id.city"/>
+                            <span t-field="o.partner_id.state_id.name"/>
+                            <span t-field="o.partner_id.zip"/>
+                        </p>
+                    </div>
+                    <div class="col-3">
+                        <p>
+                            <strong>เลขที่เอกสาร:</strong><br/>
+                            <strong>วันที่:</strong><br/>
+                            <strong>เลขที่อ้างอิง RJC:</strong><br/>
+                            <strong>วันที่อ้างอิง RJC:</strong><br/>
+                        </p>
+                    </div>
+                    <div class="col-3">
+                        <p>
+                            <span t-field="o.number"/><br/>
+                            <span t-field="o.date_invoice"/><br/>
+                            <span t-field="o.refund_invoice_id.number_preprint"/><br/>
+                            <span t-field="o.refund_invoice_id.date_invoice"/><br/>
+                        </p>
+                    </div>
+                </div>
+                <table class="table table-sm o_main_table border-black">
+                    <thead>
+                        <tr class="border-black">
+                            <th class="text-center"><strong>ลำดับ</strong></th>
+                            <th class="text-center"><strong>รหัสสินค้า</strong></th>
+                            <th class="text-center"><strong>รายละเอียด</strong></th>
+                            <th class="text-center"><strong>จำนวน</strong></th>
+                            <th class="text-center"><strong>ราคาต่อหน่วย</strong></th>
+                            <th class="text-center"><strong>จำนวนเงิน</strong></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <t t-set="column" t-value="1"/>
+                        <t t-foreach="o.invoice_line_ids" t-as="line">
+                            <tr t-att-class="'font-weight-bold o_line_section' if line.display_type == 'line_section' else 'font-italic o_line_note' if line.display_type == 'line_note' else ''">
+                                <t t-if="not line.display_type" name="account_invoice_line_accountable">
+                                    <td><span t-esc="column"/></td>
+                                    <td><span t-field="line.product_id.default_code"/></td>
+                                    <td><span t-field="line.name"/></td>
+                                    <td class="text-right"><span t-esc="'{0:,.2f}'.format(line.quantity)"/></td>
+                                    <td class="text-right"><span t-esc="'{0:,.2f}'.format(line.price_unit)"/></td>
+                                    <td class="text-right"><span t-field="line.price_subtotal" t-options='{"widget": "monetary", "display_currency": o.currency_id}'/></td>
+                                    <t t-set="column" t-value="column+1"/>
+                                </t>
+                                <t t-if="line.display_type">
+                                    <td/>
+                                    <td t-att-colspan="colspan">
+                                        <span t-field="line.name"/>
+                                    </td>
+                                    <td/><td/><td/><td/>
+                                </t>
+                            </tr>
+                        </t>
+                    </tbody>
+                </table>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <t t-if="o.comment">
+                        <p>
+                            <strong>หมายเหตุ : </strong><span t-field="o.comment"/>
+                        </p>
+                    </t>
+                </div>
+                <div class="col-6">
+                    <t t-set="total_amount_invoice" t-value="o.refund_invoice_id.amount_total - o.amount_total"/>
+                    <table class="table table-sm" border="1" style="width:100%;">
+                        <tr class="border-black">
+                            <td>
+                                <strong>มูลค่าสินค้าตามใบ RJC เดิม</strong>
+                            </td>
+                            <td class="text-right">
+                                <span t-field="o.refund_invoice_id.amount_total"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <strong>มูลค่าสินค้าที่ถูกต้อง</strong>
+                            </td>
+                            <td class="text-right">
+                                <span t-esc="total_amount_invoice" t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <strong>รวมจำนวนเงินที่ลดหนี้</strong>
+                            </td>
+                            <td class="text-right">
+                                <span t-field="o.amount_total" t-options='{"widget": "monetary"}'/>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6" style="border: 1px solid;">
+                    <p class="text-center" style="margin-top: 10px;">
+                        (<span t-esc="o.amount_text(o.amount_total)"/>)
+                    </p>
+                </div>
+            </div>
+            <div class="row pt32">
+                <div class="col-6"/>
+                <div class="col-6">
+                    <table class="table">
+                        <tr class="border-black">
+                            <th>
+                                <strong>อนุมัติโดย</strong>
+                            </th>
+                        </tr>
+                        <tr>
+                            <th>
+                                <strong>วันที่</strong>
+                            </th>
+                        </tr>
+                        <tr class="border-black">
+                            <td></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="footer pt40">
+            <small>
+                <center>
+                    417 หมู่ 2 ถนนบางพลี-ตำหรุ ต.แพรกษาใหม่ อ.เมือง จ.สมุทรปราการ 10280<br/>
+                    417 Moo 2 Bangplee-Tamrue Road Tambol Phrekasamai Amphur Muang Samutprakarn 10280<br/>
+                    Tel. (662) 703-6818-22 Fax. (622) 703-6823
+                </center>
+            </small>
+        </div>
+    </template>
+
+    <template id="rjc_invoice_credit_note_pdf">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="rjc_account_form.rjc_invoice_credit_note_layout_report"/>
+            </t>
+        </t>
+    </template>
+</odoo>

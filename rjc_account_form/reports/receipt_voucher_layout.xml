@@ -1,0 +1,310 @@
+<odoo>
+    <template id="rjc_payment_receipt_layout_report">
+        <div class="header">
+            <div class="print_head">
+                <div class="row">
+                    <div class="col-4 text-left">
+                        <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%d/%m/%Y %H:%M')"/>
+                    </div>
+                    <div class="col-4 text-center">
+                        <span t-field="o.company_id.name"/>
+                    </div>
+                    <div class="col-4 text-right">
+                        <div t-if="report_type == 'pdf'">
+                            <span class="page"/> / <span class="topage"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4">
+                    <h4><b><span t-field="o.company_id.name"/></b></h4>
+                </div>
+                <div class="col-4 text-center">
+                    <h4><b>RECEIPT VOUCHER</b></h4>
+                </div>
+                <div class="col-1"/>
+                <div class="col-3">
+                    <b>
+                        <span t-field="o.name"/><br/>
+                        <span>Status : <span t-field="o.state"/></span>
+                    </b>
+                </div>
+            </div>
+        </div>
+        <div class="article payment">
+            <div class="payment_receipt_form">
+                <div class="row">
+                    <div class="col-9">
+                        <span><b>Customer Name : </b><span t-field="o.partner_id.name"/></span>
+                    </div>
+                    <div class="col-3">
+                        <span><b>RV Date : </b><span t-field="o.payment_date"/></span>
+                    </div>
+                </div>
+                <table class="table table-sm">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Date</th>
+                            <th>Invoice No.</th>
+                            <th class="text-right">ยอดเต็ม</th>
+                            <th class="text-right">ยอดสุทธิ</th>
+                            <th class="text-right">ชำระแล้ว</th>
+                            <th class="text-right">ชำระครั้งนี้</th>
+                            <th class="text-right">ยอดค้างชำระ</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <t t-set="column" t-value="0"/>
+                        <t t-set="invoice_payment_total" t-value="0"/>
+                        <!-- Invoice Case -->
+                        <t t-foreach="o.reconciled_invoice_ids" t-as="line">
+                            <t t-set="column" t-value="column + 1"/>
+                            <t t-set="type" t-value="'out_invoice'"/>
+                            <t t-set="payment_widget" t-value="line._get_payments_vals()"/>
+                            <t t-set="net_amount" t-value="line._get_payments_widget(payment_widget, o.id, 'net_amount', type)"/>
+                            <t t-set="payment_paid" t-value="line._get_payments_widget(payment_widget, o.id, 'paid', type)"/>
+                            <t t-set="payment_amount" t-value="line._get_payments_widget(payment_widget, o.id, 'amount', type)"/>
+                            <t t-set="payment_balance" t-value="float('%.2f' % net_amount) - float('%.2f' % payment_amount)"/>
+                            <t t-set="invoice_payment_total" t-value="float('%.2f' % invoice_payment_total) + float('%.2f' % payment_amount)"/>
+                            <tr>
+                                <td>
+                                    <span t-esc="column"/>
+                                </td>
+                                <td>
+                                    <span t-field="line.date_invoice"/>
+                                </td>
+                                <td>
+                                    <span t-field="line.number_preprint"/>
+                                </td>
+                                <td class="text-right">
+                                    <t t-if="line.type == 'in_invoice'">
+                                        -<span t-field="line.amount_total"/>
+                                    </t>
+                                    <t t-if="line.type == 'out_invoice'">
+                                        <span t-field="line.amount_total"/>
+                                    </t>
+                                </td>
+                                <td class="text-right">
+                                    <span t-esc="net_amount" t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
+                                </td>
+                                <td class="text-right">
+                                    <span t-esc="payment_paid" t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
+                                </td>
+                                <td class="text-right">
+                                    <span t-esc="payment_amount" t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
+                                </td>
+                                <td class="text-right">
+                                    <span t-esc="payment_balance" t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
+                                </td>
+                            </tr>
+                        </t>
+                        <!-- Tax Adjustment Case, Direct Payment difference and Import-->
+                        <t t-if="not o.reconciled_invoice_ids">
+                            <t t-set="move_line" t-value="o._get_move_line()"/>
+                            <t t-foreach="move_line" t-as="line">
+                                <t t-set="column" t-value="column + 1"/>
+                                <tr>
+                                    <td>
+                                        <span t-esc="column"/>
+                                    </td>
+                                    <td>
+                                        <span t-field="line.date_maturity"/>
+                                    </td>
+                                    <td>
+                                        <span t-field="line.name"/>
+                                    </td>
+                                    <td/>
+                                    <td/>
+                                    <td/>
+                                    <td class="text-right">
+                                        <span t-field="line.balance" t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
+                                    </td>
+                                    <td/>
+                                </tr>
+                            </t>
+                        </t>
+                    </tbody>
+                    <tfoot>
+                        <tr class="border-black">
+                            <td/><td/><td/><td/><td/>
+                            <td class="text-right">
+                                รวม
+                            </td>
+                            <td class="text-right">
+                                <t t-if="o.reconciled_invoice_ids">
+                                    <span t-esc="invoice_payment_total" t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
+                                </t>
+                                <t t-else="">
+                                    <span t-esc="sum(move_line.mapped('balance'))" t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
+                                </t>
+                            </td>
+                            <td/>
+                        </tr>
+                        <t t-if="o.payment_difference_handling == 'reconcile_multi_deduct'">
+                            <t t-set="payment_multi_diff" t-value="o._get_payment_amount_multi_diff()"/>
+                            <t t-foreach="payment_multi_diff" t-as="diff_line">
+                                <tr>
+                                    <td/><td/><td/><td/><td/>
+                                    <td class="text-right">
+                                        <t t-esc="diff_line.name"/>
+                                    </td>
+                                    <td class="text-right">
+                                        <t t-esc="diff_line.amount" t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
+                                    </td>
+                                    <td/>
+                                </tr>
+                            </t>
+                        </t>
+                        <t t-if="o.payment_difference_handling == 'reconcile'">
+                            <t t-set="payment_diff" t-value="o._get_payment_amount_diff()"/>
+                            <tr>
+                                <td/><td/><td/><td/><td/>
+                                <td class="text-right">
+                                    <t t-esc="o.writeoff_label"/>
+                                </td>
+                                <td class="text-right">
+                                    <t t-esc="payment_diff" t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
+                                </td>
+                                <td/>
+                            </tr>
+                        </t>
+                        <tr>
+                            <td/><td/><td/><td/><td/>
+                            <td class="text-right">
+                                ยอดรับชำระสุทธิ
+                            </td>
+                            <td class="text-right">
+                                <span t-field="o.amount"/>
+                            </td>
+                            <td/>
+                        </tr>
+                    </tfoot>
+                </table>
+                <t t-set="payment_intransit" t-value="o._get_payment_intransit()"/>
+                <t t-set="check_amount" t-value="0"/>
+                <t t-set="cash_amount" t-value="0"/>
+                <t t-set="transfer_amount" t-value="0"/>
+                <t t-if="payment_intransit">
+                    <table class="table table-sm">
+                        <thead>
+                            <tr>
+                                <th>Bank/Branch</th>
+                                <th>Type</th>
+                                <th>Check No.</th>
+                                <th>Due Date</th>
+                                <th class="text-right">Amount</th>
+                                <th class="text-center">Payin Date</th>
+                                <th class="text-center">Bank/Branch</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t t-foreach="payment_intransit" t-as="line">
+                                <t t-if="line.payment_intransit_type == 'check'">
+                                    <t t-set="check_amount" t-value="check_amount + line.allocation"/>
+                                </t>
+                                <t t-elif="line.payment_intransit_type == 'cash'">
+                                    <t t-set="cash_amount" t-value="cash_amount + line.allocation"/>
+                                </t>
+                                <t t-else="">
+                                    <t t-set="transfer_amount" t-value="transfer_amount + line.allocation"/>
+                                </t>
+                                <tr>
+                                    <td>
+                                        <span t-field="line.bank_branch"/>
+                                    </td>
+                                    <td>
+                                        <span t-field="line.payment_intransit_type"/>
+                                    </td>
+                                    <td>
+                                        <span t-field="line.check_number"/>
+                                    </td>
+                                    <td>
+                                        <span t-field="line.due_date"/>
+                                    </td>
+                                    <td class="text-right">
+                                        <span t-field="line.allocation" t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
+                                    </td>
+                                    <td/>
+                                    <td/>
+                                </tr>
+                            </t>
+                        </tbody>
+                        <tfoot>
+                            <t t-set="total_amount" t-value="check_amount + cash_amount + transfer_amount"/>
+                            <tr class="border-black">
+                                <td/><td/><td/><td/>
+                                <td class="text-right">
+                                    รวมเช็ค
+                                </td>
+                                <td class="text-right">
+                                    <span t-esc="check_amount" t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
+                                </td>
+                                <td/>
+                            </tr>
+                            <tr>
+                                <td/><td/><td/><td/>
+                                <td class="text-right">
+                                    รวมเงินสด
+                                </td>
+                                <td class="text-right">
+                                    <span t-esc="cash_amount" t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
+                                </td>
+                                <td/>
+                            </tr>
+                            <tr>
+                                <td/><td/><td/><td/>
+                                <td class="text-right">
+                                    รวมเงินโอน
+                                </td>
+                                <td class="text-right">
+                                    <span t-esc="transfer_amount" t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
+                                </td>
+                                <td/>
+                            </tr>
+                            <tr>
+                                <td/><td/><td/><td/>
+                                <td class="text-right">
+                                    รวมทั้งหมด
+                                </td>
+                                <td class="text-right">
+                                    <span t-esc="total_amount" t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
+                                </td>
+                                <td/>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </t>
+                <div class="row">
+                    <div class="col-3 horizontal_dotted_line" data-content=".........................">
+                        Approved By
+                    </div>
+                    <div class="col-3 horizontal_dotted_line" data-content="...........................">
+                        Account By
+                    </div>
+                    <div class="col-3 horizontal_dotted_line" data-content="............................">
+                        Booked By
+                    </div>
+                    <div class="col-3 horizontal_dotted_line" data-content=".........................">
+                        Received By
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-3 horizontal_dotted_line" data-content=".....................................">
+                        Date
+                    </div>
+                    <div class="col-3 horizontal_dotted_line" data-content=".....................................">
+                        Date
+                    </div>
+                    <div class="col-3 horizontal_dotted_line" data-content=".....................................">
+                        Date
+                    </div>
+                    <div class="col-3 horizontal_dotted_line" data-content=".....................................">
+                        Date
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
+</odoo>
