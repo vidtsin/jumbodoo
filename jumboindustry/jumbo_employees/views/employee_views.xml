@@ -26,7 +26,7 @@
             <field name="inherit_id" ref="hr_employee_firstname.view_employee_form"/>
             <field name="arch" type="xml">
                 <xpath expr="//group" position="replace">
-                    <group col="3">
+                    <group col="2">
                         <group>
                             <field name="firstname" position="before">
                                 <field name="salutation"/>
@@ -39,29 +39,23 @@
                             </field>
                         </group>
                         <group>
-                            <field name="mother_name"/>
-                            <field name="father_name"/>
-                        </group>
-                        <group>
                             <field name="employee_payrate"/>
                             <field name="spouse_phone"/>
                             <field name="age"/>
                         </group>
                     </group>
-                    <group col="3">
+                    <group col="2">
                         <group>
-                            <field name="employee_payrate"/>
-                            <field name="spouse_phone"/>
-                            <field name="age"/>
+                            <field name="mother_name"/>
+                            <field name="father_name"/>
+                            <field name="mother_occupation"/>
                         </group>
                         <group>
-                            <field name="weight"/>
-                            <field name="height"/>
-                        </group>
-                        <group>
-                            <field name="employee_payrate"/>
-                            <field name="spouse_phone"/>
-                            <field name="age"/>
+                            <field name="religion"/>
+                            <field name="ethnicity_ids"/>
+                            <field name="military_status"/>
+                            <field name="blood_type"/>
+                            <field name="spouse_job_title"/>
                         </group>
                     </group>
                 </xpath>
