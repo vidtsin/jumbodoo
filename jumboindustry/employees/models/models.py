@@ -2,8 +2,8 @@
 
 from odoo import models, fields, api
 
-# class jumbo(models.Model):
-#     _name = 'jumbo.jumbo'
+# class employees(models.Model):
+#     _name = 'employees.employees'
 
 #     name = fields.Char()
 #     value = fields.Integer()
