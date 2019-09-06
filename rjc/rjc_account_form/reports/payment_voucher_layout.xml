@@ -1,0 +1,232 @@
+<odoo>
+    <template id="rjc_payment_voucher_layout_report">
+        <div class="header">
+            <div class="print_head">
+                <div class="row">
+                    <div class="col-4 text-left">
+                        <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%d/%m/%Y %H:%M')"/>
+                    </div>
+                    <div class="col-4 text-center">
+                        <span t-field="o.company_id.name"/>
+                    </div>
+                    <div class="col-4 text-right">
+                        <div t-if="report_type == 'pdf'">
+                            <span class="page"/> / <span class="topage"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <h4 t-field="o.company_id.name"/>
+                </div>
+                <div class="col-6 text-right">
+                    <span>
+                        <img src='/rjc_account_form/static/src/img/raja.jpg' style="max-height: 75px;"/>
+                    </span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-3">
+                    <strong>
+                        ใบสำคัญจ่าย<br/>
+                        Payment Voucher
+                    </strong>
+                </div>
+                <div class="col-3"/>
+                <div class="col-6 text-right">
+                    <strong>
+                        เลขที่ / Voucher No.: <span t-field="o.name"></span>
+                    </strong>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-8">
+                    <span>จ่ายให้ / Pay to :</span>
+                    <span t-field="o.partner_id.name"/>
+                </div>
+                <div class="col-4 text-right">
+                    <span>วันที่ / Date :</span>
+                    <span t-field="o.payment_date"/>
+                </div>
+            </div>
+        </div>
+        <div class="article payment">
+            <div class="payment_voucher_form">
+                <table class="table table-sm">
+                    <thead>
+                        <tr class="text-left">
+                            <th>ใบส่งสินค้า / Invoice No.</th>
+                            <th>รายการ / Description</th>
+                            <th>วันที่ / Date</th>
+                            <th>จำนวนเงิน / Amount</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <t t-set="total_payment" t-value="0"/>
+                        <!-- Invoice Case -->
+                        <t t-foreach="o.reconciled_invoice_ids" t-as="line">
+                            <t t-set="type" t-value="'in_invoice'"/>
+                            <t t-set="payment_widget" t-value="line._get_payments_vals()"/>
+                            <t t-set="payment_amount" t-value="line._get_payments_widget(payment_widget, o.id, 'amount', type)"/>
+                            <t t-set="total_payment" t-value="total_payment + payment_amount"/>
+                            <tr>
+                                <td>
+                                    <span t-field="line.reference"/>
+                                </td>
+                                <td>
+                                    <span t-field="line.comment"/>
+                                </td>
+                                <td>
+                                    <span t-field="line.date_invoice"/>
+                                </td>
+                                <td class="text-right">
+                                    <span t-esc="'{0:,.2f}'.format(payment_amount)"/>
+                                </td>
+                            </tr>
+                        </t>
+                        <t t-if="o.payment_difference_handling == 'reconcile_multi_deduct'">
+                            <t t-set="payment_multi_diff" t-value="o._get_payment_amount_multi_diff()"/>
+                            <t t-foreach="payment_multi_diff" t-as="diff_line">
+                                <tr>
+                                    <td/>
+                                    <td class="text-right">
+                                        <t t-esc="diff_line.name"/>
+                                    </td>
+                                    <td/>
+                                    <td class="text-right">
+                                        <t t-esc="'{0:,.2f}'.format(diff_line.amount)"/>
+                                    </td>
+                                </tr>
+                            </t>
+                        </t>
+                        <t t-if="o.payment_difference_handling == 'reconcile'">
+                            <t t-set="payment_diff" t-value="o._get_payment_amount_diff()"/>
+                            <tr>
+                                <td/>
+                                <td class="text-right">
+                                    <span t-field="o.writeoff_label"/>
+                                </td>
+                                <td/>
+                                <td class="text-right">
+                                    <t t-esc="'{0:,.2f}'.format(payment_diff)"/>
+                                </td>
+                            </tr>
+                        </t>
+
+                        <!-- Expense Case -->
+                        <t t-if="o.expense_sheet_id">
+                            <tr>
+                                <td/>
+                                <td>
+                                    <span t-field="o.expense_sheet_id.name"/>
+                                </td>
+                                <td>
+                                    <span t-field="o.expense_sheet_id.accounting_date"/>
+                                </td>
+                                <td class="text-right">
+                                    <span t-esc="'{0:,.2f}'.format(o.expense_sheet_id.total_amount)"/>
+                                </td>
+                            </tr>
+                        </t>
+                        <!-- Tax Adjustment Case, Direct Payment difference and Import-->
+                        <t t-if="not o.expense_sheet_id and not o.reconciled_invoice_ids">
+                            <t t-set="move_line" t-value="o._get_move_line()"/>
+                            <t t-foreach="move_line" t-as="line">
+                                <tr>
+                                    <td>
+                                        <span t-esc="line.move_id.ref"/>
+                                    </td>
+                                    <td>
+                                        <span t-esc="line.move_id.narration"/>
+                                    </td>
+                                    <td>
+                                        <span t-esc="line.move_id.date"/>
+                                    </td>
+                                    <td class="text-right">
+                                        <span t-esc="'{0:,.2f}'.format(line.balance*-1)"/>
+                                    </td>
+                                </tr>
+                            </t>
+                        </t>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td>
+                                บัญชี / A/C : <span t-field="o.journal_id"/>
+                            </td>
+                            <td>
+                                Payment Ref : <span t-field="o.cheque_no"/>
+                            </td>
+                            <td>
+                                Date : <span t-field="o.value_date"/>
+                            </td>
+                            <td class="text-right">
+                                <span t-esc="'{0:,.2f}'.format(o.amount)"/>
+                            </td>
+                        </tr>
+                    </tfoot>
+                </table>
+                <div class="row">
+                    <div class="col-3">
+                        <strong>
+                            จำนวนเงิน <br/>
+                            The sum of baht
+                        </strong>
+                    </div>
+                    <div class="col-9">
+                        <p class="line_dot"><span t-esc="o.amount_text(o.amount)"/></p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-3">
+                        <strong>
+                            หมายเหตุ <br/>
+                            Note
+                        </strong>
+                    </div>
+                    <div class="col-9">
+                        <span t-field="o.notes"></span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-4 horizontal_dotted_line" data-content="...........................">
+                        <strong class="mr32">
+                            ลายเซ็นผู้อนุมัติ <br/>
+                            Authorized
+                        </strong>
+                    </div>
+                    <div class="col-4 horizontal_dotted_line" data-content="....................................">
+                        <strong class="mr8">
+                            ผู้จ่ายเงิน <br/>
+                            Paid by
+                        </strong>
+                    </div>
+                    <div class="col-4 horizontal_dotted_line" data-content="....................................">
+                        <strong>
+                            ผู้รับเงิน <br/>
+                            Received by
+                        </strong>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-4 horizontal_dotted_line" data-content="............/............/...............">
+                        <strong>
+                            วันที่
+                        </strong>
+                    </div>
+                    <div class="col-4 horizontal_dotted_line" data-content="............/............/...............">
+                        <strong>
+                            วันที่
+                        </strong>
+                    </div>
+                    <div class="col-4 horizontal_dotted_line" data-content="............/............/...............">
+                        <strong>
+                            วันที่
+                        </strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
+</odoo>

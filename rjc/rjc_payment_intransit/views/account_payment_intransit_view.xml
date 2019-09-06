@@ -1,0 +1,50 @@
+<odoo>
+    <record id="account_payment_intransit_view_form" model="ir.ui.view">
+        <field name="name">account.payment.intransit.form</field>
+        <field name="model">account.payment.intransit</field>
+        <field name="inherit_id" ref="account_payment_intransit.account_payment_intransit_view_form"/>
+        <field name="arch" type="xml">
+            <field name="bank_journal_id" position="attributes">
+                <attribute name="domain">[('company_id', '=', company_id), '|', '&amp;', ('type', '=', 'bank'), ('bank_account_id', '!=', False), ('type', '=', 'cash')]</attribute>
+            </field>
+            <field name="date_payment" position="attributes">
+                <attribute name="invisible">True</attribute>
+            </field>
+            <field name="payment_intransit_type" position="after">
+                <field name="due_date"/>
+            </field>
+            <xpath expr="//group[@name='right']" position="inside">
+                <field name="payment_id"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="account_payment_intransit_view_tree" model="ir.ui.view">
+        <field name="name">account.payment.intransit.tree</field>
+        <field name="model">account.payment.intransit</field>
+        <field name="inherit_id" ref="account_payment_intransit.account_payment_intransit_view_tree"/>
+        <field name="arch" type="xml">
+            <field name="journal_id" position="after">
+                <field name="payment_id"/>
+            </field>
+        </field>
+    </record>
+
+    <record id="view_payment_intransit_search_inherit" model="ir.ui.view">
+        <field name="name">account.payment.intransit.search</field>
+        <field name="model">account.payment.intransit</field>
+        <field name="inherit_id" ref="account_payment_intransit.view_payment_intransit_search"/>
+        <field name="arch" type="xml">
+            <xpath expr="//search" position="inside">
+                <field name="partner_id" string="Partner Name"/>
+            </xpath>
+            <field name="name" position="before">
+                <field name="payment_id" string="Payment Number"/>
+            </field>
+        </field>
+    </record>
+
+    <record id="account_payment_intransit.menu_payment_intransit_tree" model="ir.ui.menu">
+        <field name="parent_id" eval="ref('account.menu_finance_receivables')"/>
+    </record>
+</odoo>
