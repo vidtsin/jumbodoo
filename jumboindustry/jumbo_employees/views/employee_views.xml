@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <!-- Add 'Salutation in OCA firstname view -->
+        <record id="pp_view_employee_form" model="ir.ui.view">
+            <field name="name">pp.view.employee.form</field>
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="hr_employee_firstname.view_employee_form"/>
+            <field name="arch" type="xml">
+                <field name="firstname" position="before">
+                    <field name="salutation"/>
+                </field>
+                <field name="lastname" position="after">
+                    <field name="english_name"/>
+                </field>
+                <field name="english_name" position="after">
+                    <field name="identification_id"/>
+                </field>
+            </field>
+        </record>
+
+
+        <record id="pp_view_employee_form" model="ir.ui.view">
+            <field name="name">pp.view.employee.form.add.col1</field>
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="hr_employee_firstname.view_employee_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//group" position="attributes">
+                    <attribute name="col">3</attribute>
+                </xpath>
+                <group col="3">
+                    <field name="firstname" position="before">
+                        <field name="salutation"/>
+                    </field>
+                    <field name="lastname" position="after">
+                        <field name="english_name"/>
+                    </field>
+                    <field name="english_name" position="after">
+                        <field name="identification_id"/>
+                    </field>
+                </group>
+            </field>
+        </record>
+
+
+        <!-- Hide ID from OCA employee id view -->
+        <record id="pp_view_employee_form_edit_id" model="ir.ui.view">
+            <field name="name">pp.view.employee.form</field>
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="hr_employee_id.view_employee_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//label[@for='identification_id']" position="replace">
+                </xpath>
+                <xpath expr="//field[@name='identification_id']" position="attributes">
+                    <attribute name="invisible">True</attribute>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>
