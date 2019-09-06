@@ -12,6 +12,8 @@
                 'l10n_th_partner',
                 'date_range',
                 oca web --> favicon
+                hr_period
+                hr_org_chart
                 ],
 
 REMOVE files still there after gitignore
