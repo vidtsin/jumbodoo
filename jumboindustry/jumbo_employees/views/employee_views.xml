@@ -10,15 +10,8 @@
                 <field name="firstname" position="before">
                     <field name="salutation"/>
                 </field>
-                <field name="lastname" position="after">
-                    <field name="english_name"/>
-                </field>
-                <field name="english_name" position="after">
-                    <field name="identification_id"/>
-                </field>
             </field>
         </record>
-
 
         <record id="pp_view_employee_form" model="ir.ui.view">
             <field name="name">pp.view.employee.form.add.col1</field>
@@ -26,42 +19,15 @@
             <field name="inherit_id" ref="hr_employee_firstname.view_employee_form"/>
             <field name="arch" type="xml">
                 <xpath expr="//group" position="replace">
-                    <group col="2">
-                        <group>
-                            <field name="firstname" position="before">
-                                <field name="salutation"/>
-                            </field>
-                            <field name="lastname" position="after">
-                                <field name="english_name"/>
-                            </field>
-                            <field name="english_name" position="after">
-                                <field name="identification_id"/>
-                            </field>
-                        </group>
-                        <group>
-                            <field name="employee_payrate"/>
-                            <field name="spouse_phone"/>
-                            <field name="age"/>
-                        </group>
-                    </group>
-                    <group col="2">
-                        <group>
-                            <field name="mother_name"/>
-                            <field name="father_name"/>
-                            <field name="mother_occupation"/>
-                        </group>
-                        <group>
-                            <field name="religion"/>
-                            <field name="ethnicity_ids"/>
-                            <field name="military_status"/>
-                            <field name="blood_type"/>
-                            <field name="spouse_job_title"/>
-                        </group>
+                    <group>
+                            <field name="employee_badge_id"/>
+                            <field name="salutation"/>
+                            <field name="firstname"/>
+                            <field name="lastname"/>
                     </group>
                 </xpath>
             </field>
         </record>
-
 
         <!-- Hide ID from OCA employee id view -->
         <record id="pp_view_employee_form_edit_id" model="ir.ui.view">
@@ -70,6 +36,7 @@
             <field name="inherit_id" ref="hr_employee_id.view_employee_form"/>
             <field name="arch" type="xml">
                 <xpath expr="//label[@for='identification_id']" position="replace">
+                    <!-- Replace with empty space -->
                 </xpath>
                 <xpath expr="//field[@name='identification_id']" position="attributes">
                     <attribute name="invisible">True</attribute>
@@ -77,5 +44,28 @@
             </field>
         </record>
 
+        <!-- Add 'Name in English' to Work Info -->
+        <record id="pp_view_employee_form_add_eng_name" model="ir.ui.view">
+            <field name="name">pp.view.employee.form</field>
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="hr.view_employee_form"/>
+            <field name="arch" type="xml">
+                <field name="address_id" position="before">
+                    <field name="english_name"/>
+                </field>
+            </field>
+        </record>
+
+        <!-- Add 'Taxpayer id' to private Info -->
+        <record id="pp_view_employee_form_add_tax_id" model="ir.ui.view">
+            <field name="name">pp.view.employee.form</field>
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="hr.view_employee_form"/>
+            <field name="arch" type="xml">
+                <field name="country_id" position="before">
+                    <field name="taxpayer_id"/>
+                </field>
+            </field>
+        </record>
     </data>
 </odoo>

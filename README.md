@@ -14,6 +14,9 @@ Required Modules
                 'partner_contact_personal_information_page',
                 'l10n_th_partner',
                 'date_range'],
+                
+                debrand
+                hr-private-info
 
 DROP TO PSQL SHELL
 sudo -u postgres psql

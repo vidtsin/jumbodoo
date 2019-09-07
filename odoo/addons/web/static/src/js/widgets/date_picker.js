@@ -104,6 +104,7 @@ var DateWidget = Widget.extend({
             }
         }
     },
+
     /**
      * Library clears the wrong date format so just ignore error
      */
@@ -159,14 +160,28 @@ var DateWidget = Widget.extend({
         this.$el.datetimepicker('minDate', date || null);
         this.__libInput--;
     },
+
+    addFiveFourThree: function(val) {
+        var dateArray = val.split('/');
+        var yearString = (parseInt(dateArray[2]) + 543).toString();
+        var dateString = dateArray[0] + '/' + dateArray[1] + '/' + yearString.toString();
+        return moment(dateString, "DD-MM-YYYY", 'en').locale('th');
+    },
+
     /**
      * @param {Moment|false} value
      */
     setValue: function (value) {
         this.set({'value': value});
         var formatted_value = value ? this._formatClient(value) : null;
+        if (typeof (formatted_value) === 'string') {
+            formatted_value = this.addFiveFourThree(formatted_value);
+            value = formatted_value;
+        }
         this.$input.val(formatted_value);
         this.__libInput++;
+        console.log('+++++++++++');
+        console.log(value);
         this.$el.datetimepicker('date', value || null);
         this.__libInput--;
     },
